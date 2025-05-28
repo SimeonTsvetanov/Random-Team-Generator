@@ -1,0 +1,229 @@
+.teams-display {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+/* Dark theme overlay - Material Design */
+body[data-theme="dark"] .teams-display {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Light theme overlay */
+body[data-theme="light"] .teams-display {
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.teams-display:not(.hidden) {
+  opacity: 1;
+  visibility: visible;
+}
+
+.teams-display__content {
+  border-radius: 8px;
+  padding: clamp(var(--spacing-md), 2vh, var(--spacing-lg))
+    clamp(var(--spacing-md), 2vh, var(--spacing-lg)) 0;
+  max-width: 800px;
+  width: 95%;
+  max-height: 95vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* Dark theme content */
+body[data-theme="dark"] .teams-display__content {
+  background-color: var(--bg-container-dark);
+  color: var(--text-primary-dark);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Light theme content */
+body[data-theme="light"] .teams-display__content {
+  background-color: var(--bg-secondary-light);
+  color: var(--text-primary-light);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.teams-display:not(.hidden) .teams-display__content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.teams-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  overflow-y: auto;
+  max-height: calc(90vh - 120px);
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+}
+
+/* Hide scrollbar when not needed */
+.teams-container:not(:hover)::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.teams-container:not(:hover) {
+  scrollbar-color: transparent transparent;
+}
+
+/* Show scrollbar on hover if content is scrollable */
+.teams-container:hover::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-dark);
+}
+
+.teams-container:hover {
+  scrollbar-color: var(--scrollbar-dark) transparent;
+}
+
+.team-box {
+  padding: var(--spacing-md);
+  border-radius: 8px;
+  transition: all 0.3s ease-out;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+body[data-theme="dark"] .team-box {
+  background-color: var(--bg-secondary-dark);
+  border: 1px solid var(--divider-dark);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.team-box h3 {
+  margin-bottom: calc(var(--spacing-sm) / 2);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  padding-bottom: calc(var(--spacing-sm) / 2);
+}
+
+body[data-theme="dark"] .team-box h3 {
+  color: var(--text-primary-dark);
+  border-bottom: 1px solid var(--divider-dark);
+}
+
+.team-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.team-box li {
+  padding: clamp(0.3rem, 1vh, 0.5rem) 0;
+  font-size: clamp(0.875rem, 2vh, 1rem);
+  line-height: 1.4;
+}
+
+body[data-theme="dark"] .team-box li {
+  color: var(--text-secondary-dark);
+  border-bottom: 1px solid var(--divider-dark);
+}
+
+.team-box li:last-child {
+  border-bottom: none;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  margin-top: auto;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+body[data-theme="dark"] .actions {
+  background-color: var(--bg-container-dark);
+  border-top: 1px solid var(--divider-dark);
+}
+
+.actions .icon-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background-color: var(--accent-dark);
+  font-family: "Poppins", sans-serif;
+  border: none;
+}
+
+.actions .icon-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.actions .icon-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.actions .icon-button .material-icons {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Add tooltip styles */
+.actions .icon-button[title] {
+  position: relative;
+}
+
+.actions .icon-button[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Scrollbar customization */
+body[data-theme="dark"] .teams-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+body[data-theme="dark"] .teams-container::-webkit-scrollbar-track {
+  background: var(--bg-container-dark);
+  border-radius: 4px;
+}
+
+body[data-theme="dark"] .teams-container::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-dark);
+  border-radius: 4px;
+}
+
+.spin-once {
+  animation: singleSpin 0.5s ease-in-out forwards;
+}

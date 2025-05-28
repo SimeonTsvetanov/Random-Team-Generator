@@ -1,0 +1,144 @@
+.main-input {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+#names-input {
+  width: 100%;
+  height: clamp(120px, 35vh, 250px);
+  padding: clamp(0.5rem, 2vh, var(--spacing-md));
+  border-radius: var(--border-radius);
+  resize: none;
+  font-family: inherit;
+  line-height: 1.5;
+  font-size: clamp(14px, 1.8vh, 16px);
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  #names-input {
+    height: 100%;
+    min-height: 45vh;
+  }
+}
+
+.team-count-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.5rem, 2vh, 1rem);
+}
+
+.team-count-label {
+  color: var(--text-secondary-dark);
+  font-size: clamp(14px, 1.6vh, 16px);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  .team-count-label {
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .controls {
+    gap: 0.25rem;
+  }
+
+  .icon-button {
+    width: 32px;
+    height: 32px;
+  }
+
+  #teams-count {
+    width: 50px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .generate-button {
+    height: 32px;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    min-width: auto;
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+#teams-count {
+  width: 60px;
+  height: 36px;
+  padding: 0;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  color: inherit;
+  margin: 0;
+}
+
+/* Remove arrows from number input */
+#teams-count::-webkit-inner-spin-button,
+#teams-count::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.icon-button {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.icon-button .material-icons {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.generate-button {
+  height: 36px;
+  padding: 0 1.5rem;
+  font-size: clamp(
+    14px,
+    1.6vh,
+    16px
+  ); /* Updated font size to match dark theme */
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  min-width: calc(60px + 2 * 36px + 2 * 0.5rem);
+  transition: all 0.2s ease;
+}

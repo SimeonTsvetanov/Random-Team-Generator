@@ -1,0 +1,39 @@
+#theme-switch {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.theme-switch {
+  position: relative;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.theme-switch__toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+/* Use Material Icons for theme indicators */
+.theme-switch:after {
+  font-family: "Material Icons";
+  content: "light_mode"; /* Sun icon in dark theme */
+  color: #fff;
+  font-size: 24px;
+  transition: var(--transition-speed);
+}
+
+/* Light theme - show moon icon */
+body[data-theme="light"] .theme-switch:after {
+  content: "dark_mode"; /* Moon icon in light theme */
+  color: #424242;
+}

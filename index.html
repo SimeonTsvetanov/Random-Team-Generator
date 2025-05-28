@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1a1a1a" />
+    <title>Random Team Generator</title>
+    <link rel="manifest" href="public/manifest.json" />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="public/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="public/icons/favicon-16x16.png"
+    />
+    <link rel="shortcut icon" href="public/favicon.ico" />
+
+    <!-- Apple Touch Icons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="public/icons/apple-touch-icon-180x180.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="167x167"
+      href="public/icons/apple-touch-icon-167x167.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="public/icons/apple-touch-icon-152x152.png"
+    />
+
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileColor" content="#1a1a1a" />
+    <meta
+      name="msapplication-TileImage"
+      content="public/icons/icon-144x144.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/css/main.css" />
+    <!-- Component styles -->
+    <link rel="stylesheet" href="src/css/components/logo.css" />
+    <link rel="stylesheet" href="src/css/components/theme-switch.css" />
+    <link rel="stylesheet" href="src/css/components/main-input.css" />
+    <link rel="stylesheet" href="src/css/components/error-message.css" />
+    <link rel="stylesheet" href="src/css/components/team-display.css" />
+    <link rel="stylesheet" href="src/css/components/participant-counter.css" />
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="src/css/layout/grid.css" />
+    <link rel="stylesheet" href="src/css/layout/containers.css" />
+    <!-- Theme styles -->
+    <link rel="stylesheet" href="src/css/themes/dark.css" />
+    <link rel="stylesheet" href="src/css/themes/light.css" />
+    <!-- Animations -->
+    <link rel="stylesheet" href="src/css/animations.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Logo and Theme Switch -->
+      <header class="header">
+        <div id="logo"></div>
+        <div id="theme-switch"></div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main">
+        <div id="main-input" class="main-input">
+          <div class="input-container">
+            <textarea
+              id="names-input"
+              placeholder="Enter names (one per line)..."
+            ></textarea>
+            <div id="participant-counter" class="participant-counter"></div>
+          </div>
+          <div class="team-count-container">
+            <p class="team-count-label">NUMBER OF TEAMS:</p>
+            <div class="controls">
+              <button class="icon-button" id="decrease-teams">
+                <span class="material-icons">remove</span>
+              </button>
+              <input
+                type="number"
+                id="teams-count"
+                min="2"
+                value="2"
+                readonly
+              />
+              <button class="icon-button" id="increase-teams">
+                <span class="material-icons">add</span>
+              </button>
+            </div>
+          </div>
+          <button id="generate-teams" class="generate-button">GENERATE</button>
+        </div>
+        <!-- Error Message -->
+        <div id="error-message" class="error-message hidden">
+          <div class="error-message__content">
+            <div class="error-message__text"></div>
+            <button class="error-message__button">OK</button>
+          </div>
+        </div>
+        <!-- Teams Display -->
+        <div id="teams-display" class="teams-display hidden">
+          <div class="teams-display__content">
+            <div class="teams-container"></div>
+            <div class="actions">
+              <button
+                id="refresh-teams"
+                class="icon-button"
+                title="Refresh Teams"
+              >
+                <span class="material-icons">autorenew</span>
+              </button>
+              <button id="copy-teams" class="icon-button" title="Copy Teams">
+                <span class="material-icons">content_copy</span>
+              </button>
+              <button id="close-teams" class="icon-button" title="Close">
+                <span class="material-icons">close</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>Created by Simeon Tsvetanov</p>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="src/js/utils/teamGenerator.js"></script>
+    <script src="src/js/utils/inputValidator.js"></script>
+    <script src="src/js/utils/storage.js"></script>
+    <script src="src/js/utils/animations.js"></script>
+    <script src="src/js/components/Logo.js"></script>
+    <script src="src/js/components/ThemeSwitch.js"></script>
+    <script src="src/js/components/MainInput.js"></script>
+    <script src="src/js/components/ErrorMessage.js"></script>
+    <script src="src/js/components/TeamDisplay.js"></script>
+    <script src="src/js/components/ParticipantCounter.js"></script>
+    <script src="src/js/main.js"></script>
+    <script>
+      // Register service worker
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("public/service-worker.js")
+          .then((registration) =>
+            console.log("ServiceWorker registration successful")
+          )
+          .catch((err) =>
+            console.log("ServiceWorker registration failed:", err)
+          );
+      }
+    </script>
+  </body>
+</html>

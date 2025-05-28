@@ -1,0 +1,142 @@
+/* Light theme implementation following Material Design guidelines */
+body[data-theme="light"] {
+  background-color: var(--bg-primary-light);
+  color: var(--text-primary-light);
+}
+
+/* Container backgrounds */
+body[data-theme="light"] .main-input {
+  background-color: var(--bg-secondary-light);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Input styles */
+body[data-theme="light"] textarea,
+body[data-theme="light"] input[type="number"] {
+  background-color: var(--bg-primary-light);
+  color: var(--text-primary-light);
+  border: 1px solid var(--divider-light);
+}
+
+body[data-theme="light"] textarea::placeholder {
+  color: var(--text-disabled-light);
+}
+
+/* Button styles */
+body[data-theme="light"] button {
+  background-color: var(--accent-light);
+  color: #000000;
+  border: none;
+}
+
+body[data-theme="light"] #generate-teams {
+  background-color: var(--accent-secondary-light);
+  color: #000000;
+}
+
+body[data-theme="light"] button:hover {
+  background-color: var(--button-hover-light);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme="light"] button:active {
+  background-color: var(--button-active-light);
+  box-shadow: none;
+}
+
+/* Team container styles */
+body[data-theme="light"] .team-box {
+  background-color: var(--bg-secondary-light);
+  border: 1px solid var(--divider-light);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+body[data-theme="light"] .team-box h3 {
+  color: var(--text-primary-light);
+  border-bottom: 1px solid var(--divider-light);
+  font-size: clamp(1rem, 2.5vh, 1.1rem);
+  padding-bottom: clamp(0.3rem, 1vh, 0.5rem);
+}
+
+body[data-theme="light"] .team-box li {
+  color: var(--text-secondary-light);
+  border-bottom: 1px solid var(--divider-light);
+}
+
+/* Modal styles */
+body[data-theme="light"] .teams-display {
+  background-color: var(--overlay-light);
+  backdrop-filter: blur(4px);
+}
+
+body[data-theme="light"] .teams-display__content {
+  background-color: var(--bg-container-light);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Error message styles */
+body[data-theme="light"] .error-message__content {
+  background-color: var(--bg-container-light);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+body[data-theme="light"] .error-message__text {
+  color: var(--error-color-light);
+}
+
+body[data-theme="light"] .error-message__button {
+  background-color: var(--error-color-light);
+  color: white;
+}
+
+/* Text colors */
+body[data-theme="light"] .team-count-label {
+  color: var(--text-primary-light);
+}
+
+/* Scrollbar customization */
+body[data-theme="light"] *::-webkit-scrollbar-track {
+  background: var(--bg-primary-light);
+}
+
+body[data-theme="light"] *::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-light);
+  border-radius: 4px;
+}
+
+body[data-theme="light"] *::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Actions section */
+body[data-theme="light"] .actions {
+  background-color: var(--bg-container-light);
+  border-top: 1px solid var(--divider-light);
+}
+
+/* Icon buttons */
+body[data-theme="light"] .icon-button {
+  background-color: var(--accent-light);
+  color: #000000;
+  border: none;
+}
+
+/* Footer text */
+body[data-theme="light"] .footer {
+  color: var(--text-secondary-light);
+}
+
+body[data-theme="light"] .footer p {
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 500;
+}
+
+body[data-theme="light"] #teams-count {
+  background-color: var(--bg-primary-light);
+  color: var(--text-primary-light);
+}
+
+/* Generate button font size */
+[data-theme="light"] .generate-button {
+  font-size: clamp(14px, 1.6vh, 16px); /* ensure same size as dark theme */
+}

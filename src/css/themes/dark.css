@@ -1,0 +1,145 @@
+body[data-theme="dark"] {
+  background-color: var(--bg-primary-dark);
+  color: var(--text-primary-dark);
+}
+
+/* Container backgrounds with elevation */
+body[data-theme="dark"] .main-input {
+  background-color: var(--bg-secondary-dark);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+body[data-theme="dark"] .teams-display {
+  background-color: var(--overlay-dark);
+  backdrop-filter: blur(4px);
+}
+
+body[data-theme="dark"] .teams-display__content {
+  background-color: var(--bg-container-dark);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Input styles */
+body[data-theme="dark"] textarea,
+body[data-theme="dark"] input[type="number"] {
+  background-color: var(--bg-primary-dark);
+  color: var(--text-primary-dark);
+  border: 1px solid var(--divider-dark);
+  resize: none; /* Disable resize handle */
+}
+
+body[data-theme="dark"] textarea:focus,
+body[data-theme="dark"] input[type="number"]:focus {
+  border-color: var(--accent-dark);
+}
+
+body[data-theme="dark"] textarea::placeholder {
+  color: var(--text-disabled-dark);
+}
+
+body[data-theme="dark"] #teams-count {
+  background-color: var(--bg-primary-dark);
+  color: var(--text-primary-dark);
+}
+
+/* Button styles */
+body[data-theme="dark"] button {
+  background-color: var(--accent-dark);
+  color: #000000; /* Dark text on light accent */
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 8px 16px;
+}
+
+/* Special style for generate button */
+body[data-theme="dark"] #generate-teams {
+  background-color: var(--accent-secondary-dark);
+  color: #000000;
+}
+
+body[data-theme="dark"] #generate-teams:hover {
+  background-color: #00c4b0; /* Slightly darker teal */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+body[data-theme="dark"] #generate-teams:active {
+  background-color: #00a396; /* Even darker teal */
+  box-shadow: none;
+}
+
+/* Regular button hover and active states */
+body[data-theme="dark"] button:hover {
+  background-color: var(--button-hover-dark);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+body[data-theme="dark"] button:active {
+  background-color: var(--button-active-dark);
+  box-shadow: none;
+}
+
+/* Team container styles */
+body[data-theme="dark"] .team-box {
+  background-color: var(--bg-secondary-dark);
+  border: 1px solid var(--divider-dark);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+body[data-theme="dark"] .team-box h3 {
+  color: var(--text-primary-dark);
+  border-bottom: 1px solid var(--divider-dark);
+}
+
+body[data-theme="dark"] .team-box li {
+  color: var(--text-secondary-dark);
+  border-bottom: 1px solid var(--divider-dark);
+}
+
+/* Error message styles */
+body[data-theme="dark"] .error-message__content {
+  background-color: var(--bg-container-dark);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+body[data-theme="dark"] .error-message__text {
+  color: var(--error-color-dark);
+}
+
+body[data-theme="dark"] .error-message__button {
+  background-color: var(--error-color-dark);
+  color: var(--bg-primary-dark);
+}
+
+body[data-theme="dark"] .error-message__button:hover {
+  background-color: #e57373; /* Lighter error color */
+}
+
+/* Footer text */
+body[data-theme="dark"] .footer {
+  color: var(--text-secondary-dark);
+}
+
+/* Scrollbar customization */
+body[data-theme="dark"] *::-webkit-scrollbar-track {
+  background: var(--bg-primary-dark);
+}
+
+body[data-theme="dark"] *::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-dark);
+  border-radius: 4px;
+}
+
+body[data-theme="dark"] *::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Participant counter */
+body[data-theme="dark"] .participant-counter {
+  background-color: var(--bg-container-dark);
+  color: var(--text-secondary-dark);
+  border: 1px solid var(--divider-dark);
+}
