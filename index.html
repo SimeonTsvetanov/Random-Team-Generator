@@ -158,8 +158,17 @@
     <script>
       // Register service worker
       if ("serviceWorker" in navigator) {
+        // Get the base path from the current URL
+        const basePath = window.location.pathname.includes(
+          "/Random-Team-Generator"
+        )
+          ? "/Random-Team-Generator"
+          : "";
+
         navigator.serviceWorker
-          .register("public/service-worker.js")
+          .register(`${basePath}/public/service-worker.js`, {
+            scope: basePath + "/",
+          })
           .then((registration) =>
             console.log("ServiceWorker registration successful")
           )
