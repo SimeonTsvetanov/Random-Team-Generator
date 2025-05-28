@@ -28,12 +28,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: calc(100vh - 100px);
-  padding: 1rem;
+  flex: 1;
+  padding: 0.5rem;
   margin: 0 auto;
   width: 100%;
   position: relative;
   overflow: hidden;
+  min-height: 0; /* Allow container to shrink */
 }
 
 @media (max-width: 768px) and (orientation: portrait) {
@@ -46,19 +47,16 @@
 
 .footer {
   text-align: center;
-  padding: clamp(0.25rem, 1vh, 0.5rem);
+  padding: 8px 0;
   height: auto;
-  min-height: 30px;
+  min-height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary-dark);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  margin-top: auto;
+  width: 100%;
   background-color: inherit;
-  z-index: 10;
 }
 
 @media (orientation: portrait) {

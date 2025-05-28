@@ -124,17 +124,13 @@
 .generate-button {
   height: 36px;
   padding: 0 1.5rem;
-  font-size: clamp(
-    14px,
-    1.6vh,
-    16px
-  ); /* Updated font size to match dark theme */
+  font-size: clamp(14px, 1.6vh, 16px);
   font-weight: 500;
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   border-radius: 8px;
-  margin: 0 auto;
+  margin: 8px auto;
   display: flex;
   align-items: center;
   justify-content: center;
