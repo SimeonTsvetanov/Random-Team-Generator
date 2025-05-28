@@ -18,10 +18,10 @@ class TeamDisplay {
     ];
     this.init();
   }
-
   /**
    * Initialize event listeners
-   */ init() {
+   */
+  init() {
     this.refreshButton.addEventListener("click", () => this.refreshTeams());
     this.copyButton.addEventListener("click", () => this.copyTeams());
     this.closeButton.addEventListener("click", () => this.hide());
@@ -61,10 +61,10 @@ class TeamDisplay {
       }, 100);
     });
   }
-
   /**
    * Render teams in the container
-   */ renderTeams() {
+   */
+  renderTeams() {
     this.teamsContainer.innerHTML = this.currentTeams
       .map((team, index) => {
         const colorIndex = index % this.teamColors.length;
@@ -83,7 +83,8 @@ class TeamDisplay {
   }
   /**
    * Refresh teams with animation
-   */ refreshTeams() {
+   */
+  refreshTeams() {
     // Get all current names and shuffle them
     const allNames = this.currentTeams.flat();
 
@@ -112,7 +113,9 @@ class TeamDisplay {
         // Remove animation class after rendering
         this.teamsContainer.querySelectorAll(".team-box").forEach((box) => {
           box.classList.remove("refresh");
-        }); // Apply entrance animation
+        });
+
+        // Apply entrance animation
         setTimeout(() => {
           this.teamsContainer
             .querySelectorAll(".team-box")
@@ -126,16 +129,25 @@ class TeamDisplay {
           icon.classList.remove("spin-once");
           teamBoxes.forEach((box) => box.classList.remove("refresh"));
         }, 300);
-      }, 150); // Reduced wait time for a snappier update
+      }, 150);
     }
   }
 
   /**
-   * Copy teams to clipboard
-   */ async copyTeams() {
-    const text = TeamGenerator.formatTeams(this.currentTeams);
+   * Copy teams to clipboard with enhanced formatting
+   */
+  async copyTeams() {
+    // Format teams with enhanced styling
+    const formattedTeams = this.currentTeams
+      .map((team, index) => {
+        const teamHeader = `⭐ Team ${index + 1} ⭐`;
+        const members = team.map((name) => `- ${name}`).join("\n");
+        return `${teamHeader}\n${members}`;
+      })
+      .join("\n\n");
+
     try {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(formattedTeams);
       const icon = this.copyButton.querySelector(".material-icons");
       icon.textContent = "check";
       this.copyButton.title = "Copied!";

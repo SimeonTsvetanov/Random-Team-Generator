@@ -1,33 +1,40 @@
 .participant-counter {
   position: absolute;
-  top: 10px;
-  right: 25px;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: var(--accent-dark);
   color: var(--text-primary-dark);
-  padding: 2px 8px;
+  padding: 4px 16px;
   border-radius: 12px;
   font-size: 0.8rem;
-  opacity: 0.9;
+  opacity: 1;
   transition: opacity var(--transition-speed);
+  text-align: center;
+  width: fit-content;
+  z-index: 10;
+  height: 24px;
+  line-height: 24px;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
 }
 
 @media (max-width: 768px) and (orientation: portrait) {
   .participant-counter {
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    right: auto;
     font-size: 0.9rem;
-    padding: 3px 12px;
-    z-index: 1;
-  }
-
-  .input-container {
-    margin-top: 30px;
+    padding: 4px 16px;
+    top: -24px;
+    height: 24px;
+    line-height: 24px;
   }
 }
 
 .participant-counter:hover {
   opacity: 1;
+}
+
+/* Make sure it's not hidden by default */
+.participant-counter:not(.hidden) {
+  display: block;
 }

@@ -5,10 +5,10 @@ class App {
   constructor() {
     this.initComponents();
   }
-
   /**
    * Initialize all application components
-   */ initComponents() {
+   */
+  initComponents() {
     // Initialize theme switch
     this.themeSwitch = new ThemeSwitch();
 

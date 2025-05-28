@@ -18,8 +18,9 @@ body[data-theme="light"] input[type="number"] {
   border: 1px solid var(--divider-light);
 }
 
-body[data-theme="light"] textarea::placeholder {
-  color: var(--text-disabled-light);
+body[data-theme="light"] textarea::placeholder,
+body[data-theme="light"] .name-input::placeholder {
+  color: rgba(0, 0, 0, 0.38); /* Same as dark theme's disabled text opacity */
 }
 
 /* Button styles */
@@ -139,4 +140,14 @@ body[data-theme="light"] #teams-count {
 /* Generate button font size */
 [data-theme="light"] .generate-button {
   font-size: clamp(14px, 1.6vh, 16px); /* ensure same size as dark theme */
+}
+
+/* Delete name button styles */
+body[data-theme="light"] .delete-name {
+  color: var(--text-secondary-light);
+}
+
+body[data-theme="light"] .delete-name:hover {
+  opacity: 0.8;
+  background: rgba(0, 0, 0, 0.05);
 }

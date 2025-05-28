@@ -49,6 +49,11 @@ body {
   --divider-dark: rgba(255, 255, 255, 0.12); /* Material divider color */
   --scrollbar-dark: rgba(255, 255, 255, 0.12);
 
+  /* RGB values for opacity adjustments */
+  --scrollbar-color-rgb: 255, 255, 255;
+  --accent-color-rgb: 187, 134, 252;
+  --error-color-rgb: 207, 102, 121;
+
   /* Light theme variables - Material Design light theme */
   --bg-primary-light: #ffffff;
   --bg-secondary-light: #f5f5f5; /* Surface 1 */
@@ -83,11 +88,13 @@ body {
 
 .app-container {
   min-height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   padding: var(--spacing-md);
   max-width: 1200px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .hidden {

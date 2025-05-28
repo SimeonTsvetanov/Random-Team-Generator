@@ -1,10 +1,10 @@
 /**
- * Component that displays the number of valid participants
+ * Component that tracks the number of valid participants
  */
 class ParticipantCounter {
   constructor() {
-    this.container = document.getElementById("participant-counter");
     this.textArea = document.getElementById("names-input");
+    this.count = 0;
     this.init();
   }
 
@@ -21,7 +21,14 @@ class ParticipantCounter {
    */
   updateCount() {
     const names = InputValidator.getValidNames(this.textArea.value);
-    this.container.textContent = `${names.length} participants`;
-    this.container.classList.toggle("hidden", names.length === 0);
+    this.count = names.length;
+  }
+
+  /**
+   * Get current count
+   * @returns {number} Current number of valid participants
+   */
+  getCount() {
+    return this.count;
   }
 }

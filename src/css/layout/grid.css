@@ -33,7 +33,7 @@
   margin: 0 auto;
   width: 100%;
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Changed from hidden to visible to ensure no scrollbar appears */
   min-height: 0; /* Allow container to shrink */
 }
 
@@ -63,6 +63,28 @@
   .footer {
     padding: 0.25rem;
     min-height: 30px;
+    font-size: 0.8rem;
+  }
+
+  .footer p {
+    margin: 0;
+  }
+}
+
+/* Special landscape mode for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .header {
+    padding: 4px 8px;
+    min-height: 40px;
+  }
+
+  .main {
+    padding: 0 4px;
+  }
+
+  .footer {
+    padding: 4px 0;
+    min-height: 20px;
     font-size: 0.8rem;
   }
 

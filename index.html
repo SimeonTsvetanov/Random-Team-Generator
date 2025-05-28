@@ -62,7 +62,6 @@
     <link rel="stylesheet" href="src/css/components/main-input.css" />
     <link rel="stylesheet" href="src/css/components/error-message.css" />
     <link rel="stylesheet" href="src/css/components/team-display.css" />
-    <link rel="stylesheet" href="src/css/components/participant-counter.css" />
     <!-- Layout styles -->
     <link rel="stylesheet" href="src/css/layout/grid.css" />
     <link rel="stylesheet" href="src/css/layout/containers.css" />
@@ -88,7 +87,6 @@
               id="names-input"
               placeholder="Enter names (one per line)..."
             ></textarea>
-            <div id="participant-counter" class="participant-counter"></div>
           </div>
           <div class="team-count-container">
             <p class="team-count-label">NUMBER OF TEAMS:</p>
@@ -96,19 +94,15 @@
               <button class="icon-button" id="decrease-teams">
                 <span class="material-icons">remove</span>
               </button>
-              <input
-                type="number"
-                id="teams-count"
-                min="2"
-                value="2"
-                readonly
-              />
+              <input type="number" id="teams-count" min="2" value="2" />
               <button class="icon-button" id="increase-teams">
                 <span class="material-icons">add</span>
               </button>
             </div>
+            <button id="generate-teams" class="generate-button">
+              GENERATE
+            </button>
           </div>
-          <button id="generate-teams" class="generate-button">GENERATE</button>
         </div>
         <!-- Error Message -->
         <div id="error-message" class="error-message hidden">

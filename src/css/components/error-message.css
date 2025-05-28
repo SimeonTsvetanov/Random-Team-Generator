@@ -43,6 +43,18 @@ body[data-theme="light"] .error-message {
   line-height: 1.5;
 }
 
+.yavash-bre {
+  text-align: center;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.error-text {
+  text-align: center;
+}
+
 .error-message__button {
   align-self: center;
   padding: clamp(6px, 1.5vh, 8px) clamp(16px, 4vw, 24px);

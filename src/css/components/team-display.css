@@ -75,24 +75,42 @@ body[data-theme="light"] .teams-display__content {
   max-height: calc(90vh - 120px);
   scrollbar-width: thin;
   scrollbar-gutter: stable;
+  padding-right: 12px; /* Make room for scrollbar */
 }
 
-/* Hide scrollbar when not needed */
-.teams-container:not(:hover)::-webkit-scrollbar-thumb {
-  background-color: transparent;
+/* Base scrollbar styles */
+.teams-container::-webkit-scrollbar {
+  width: 8px;
 }
 
-.teams-container:not(:hover) {
-  scrollbar-color: transparent transparent;
+.teams-container::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
 }
 
-/* Show scrollbar on hover if content is scrollable */
+.teams-container::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--scrollbar-color-rgb), 0.2);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+/* Dark theme scrollbar */
+body[data-theme="dark"] .teams-container::-webkit-scrollbar-thumb {
+  --scrollbar-color-rgb: 255, 255, 255;
+}
+
+/* Light theme scrollbar */
+body[data-theme="light"] .teams-container::-webkit-scrollbar-thumb {
+  --scrollbar-color-rgb: 0, 0, 0;
+}
+
+/* Enhanced visibility on hover */
 .teams-container:hover::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-dark);
+  background-color: rgba(var(--scrollbar-color-rgb), 0.4);
 }
 
-.teams-container:hover {
-  scrollbar-color: var(--scrollbar-dark) transparent;
+.teams-container:hover::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(var(--scrollbar-color-rgb), 0.6);
 }
 
 .team-box {

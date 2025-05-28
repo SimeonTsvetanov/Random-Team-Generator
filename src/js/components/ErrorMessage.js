@@ -11,7 +11,6 @@ class ErrorMessage {
     // Initialize the OK button click handler
     this.okButton.addEventListener("click", () => this.hide());
   }
-
   /**
    * Show error message with auto-hide
    * @param {string} message - Error message to display
@@ -22,7 +21,12 @@ class ErrorMessage {
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);
     }
-    this.messageText.textContent = message;
+    // Set the "Яваш Бре!" text and the actual error message
+    this.messageText.innerHTML =
+      '<div class="yavash-bre">Яваш Бре!</div><div class="error-text">' +
+      message +
+      "</div>";
+
     this.container.classList.remove("hidden");
     this.container.classList.add("fade-in");
 
