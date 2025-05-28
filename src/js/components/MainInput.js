@@ -22,18 +22,20 @@ class MainInput {
    * Initialize event listeners
    */
   init() {
-    this.generateButton.addEventListener("click", () => this.generateTeams());
-
-    // Load saved names if any
-    const savedNames = StorageManager.get("savedNames", "");
+    this.generateButton.addEventListener("click", () => this.generateTeams());    // Load saved names if any
+    const savedNames = StorageManager.get(StorageManager.KEYS.SAVED_NAMES, "");
     if (savedNames) {
       this.textArea.value = savedNames;
       this.participantCounter.updateCount();
     }
 
+    // Load last team count if any
+    const lastTeamCount = StorageManager.get(StorageManager.KEYS.LAST_TEAM_COUNT, 2);
+    this.teamsCount.value = lastTeamCount;
+
     // Save names on input
     this.textArea.addEventListener("input", () => {
-      StorageManager.save("savedNames", this.textArea.value);
+      StorageManager.save(StorageManager.KEYS.SAVED_NAMES, this.textArea.value);
     });
 
     // Handle team count changes
@@ -48,13 +50,14 @@ class MainInput {
   /**
    * Update team count with bounds checking
    * @param {number} change - Amount to change (-1 or 1)
-   */
-  updateTeamCount(change) {
+   */  updateTeamCount(change) {
     const currentValue = parseInt(this.teamsCount.value);
     const newValue = currentValue + change;
     if (newValue >= 2) {
       // Ensure minimum of 2 teams
       this.teamsCount.value = newValue;
+      // Save team count preference
+      StorageManager.save(StorageManager.KEYS.LAST_TEAM_COUNT, newValue);
     }
   }
 

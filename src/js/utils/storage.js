@@ -1,9 +1,10 @@
 /**
  * Utility class for handling local storage operations
  */
-class StorageManager {
-  static KEYS = {
+class StorageManager {  static KEYS = {
     THEME: "rta-theme-preference",
+    SAVED_NAMES: "rta-saved-names",
+    LAST_TEAM_COUNT: "rta-last-team-count"
   };
 
   /**
