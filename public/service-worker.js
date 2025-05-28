@@ -52,20 +52,18 @@ self.addEventListener("activate", (event) => {
 // Fetch event - serve from cache, fallback to network
 self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
-  
+
   // Handle navigation requests to return index.html for PWA
   if (event.request.mode === "navigate") {
     event.respondWith(
-      fetch(event.request)
-        .catch(() => {
-          return caches.match(`${BASE_PATH}/index.html`)
-            .then(response => {
-              if (response) {
-                return response;
-              }
-              // If both network and cache fail, return a custom offline page
-              return new Response(
-                `<!DOCTYPE html>
+      fetch(event.request).catch(() => {
+        return caches.match(`${BASE_PATH}/index.html`).then((response) => {
+          if (response) {
+            return response;
+          }
+          // If both network and cache fail, return a custom offline page
+          return new Response(
+            `<!DOCTYPE html>
                 <html>
                 <head><title>Offline - Random Team Generator</title></head>
                 <body>
@@ -73,12 +71,12 @@ self.addEventListener("fetch", (event) => {
                   <p>Please check your internet connection and try again.</p>
                 </body>
                 </html>`,
-                {
-                  headers: { "Content-Type": "text/html" }
-                }
-              );
-            });
-        })
+            {
+              headers: { "Content-Type": "text/html" },
+            }
+          );
+        });
+      })
     );
     return;
   }
