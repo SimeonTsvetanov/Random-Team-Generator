@@ -13,11 +13,6 @@ A modern Progressive Web App for quickly and fairly dividing people into teams.
 [Demo](#live-demo) •
 [Installation](#installation) •
 [Usage](#usage) •
-[Development](#development) •
-[License](#license) •
-[Author](#author) •
-[Contributing](#contributing) •
-[Show your support](#show-your-support)
 
 </div>
 
