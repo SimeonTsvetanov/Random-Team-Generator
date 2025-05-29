@@ -85,64 +85,64 @@ Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Tea
 ### Project Structure
 
 /
-├── index.html                # Main HTML file
-├── LICENSE                   # MIT license file
-├── README.md                 # Project documentation
-├── RTG.png                   # Main application image
-├── generate-icons.ps1        # PowerShell script for icon generation
+├── index.html               # Main HTML file
+├── LICENSE                  # MIT license file
+├── README.md                # Project documentation
+├── RTG.png                  # Main application image
+├── generate-icons.ps1       # PowerShell script for icon generation
 ├── src/
-│   ├── js/
-│   │   ├── components/       # UI components
-│   │   │   ├── ErrorMessage.js
-│   │   │   ├── Logo.js
-│   │   │   ├── MainInput.js
-│   │   │   ├── ParticipantCounter.js
-│   │   │   ├── TeamDisplay.js
-│   │   │   └── ThemeSwitch.js
-│   │   ├── utils/            # Helper functions
-│   │   │   ├── inputValidator.js
-│   │   │   ├── storage.js
-│   │   │   └── teamGenerator.js
-│   │   └── main.js           # App entry point
-│   ├── css/
-│   │   ├── animations.css    # Animation styles
-│   │   ├── main.css          # Main CSS file
-│   │   ├── components/       # Component styles
-│   │   │   ├── error-message.css
-│   │   │   ├── logo.css
-│   │   │   ├── main-input.css
-│   │   │   ├── participant-counter.css
-│   │   │   ├── team-display.css
-│   │   │   └── theme-switch.css
-│   │   ├── layout/           # Layout styles
-│   │   │   ├── containers.css
-│   │   │   └── grid.css
-│   │   └── themes/           # Theme styles
-│   │       ├── dark.css
-│   │       └── light.css
-│   └── assets/
-│       └── images/           # Images and icons
-│           ├── logo.svg
-│           └── teams-logo.svg
+│   ├── js/
+│   │   ├── components/      # UI components
+│   │   │   ├── ErrorMessage.js
+│   │   │   ├── Logo.js
+│   │   │   ├── MainInput.js
+│   │   │   ├── ParticipantCounter.js
+│   │   │   ├── TeamDisplay.js
+│   │   │   └── ThemeSwitch.js
+│   │   ├── utils/           # Helper functions
+│   │   │   ├── inputValidator.js
+│   │   │   ├── storage.js
+│   │   │   └── teamGenerator.js
+│   │   └── main.js          # App entry point
+│   ├── css/
+│   │   ├── animations.css   # Animation styles
+│   │   ├── main.css         # Main CSS file
+│   │   ├── components/      # Component styles
+│   │   │   ├── error-message.css
+│   │   │   ├── logo.css
+│   │   │   ├── main-input.css
+│   │   │   ├── participant-counter.css
+│   │   │   ├── team-display.css
+│   │   │   └── theme-switch.css
+│   │   ├── layout/          # Layout styles
+│   │   │   ├── containers.css
+│   │   │   └── grid.css
+│   │   └── themes/          # Theme styles
+│   │       ├── dark.css
+│   │       └── light.css
+│   └── assets/
+│       └── images/          # Images and icons
+│           ├── logo.svg
+│           └── teams-logo.svg
 └── public/
-    ├── favicon.ico          # Favicon
-    ├── manifest.json        # PWA manifest
-    ├── service-worker.js    # Service worker
-    └── icons/               # App icons in various sizes
-        ├── apple-touch-icon-152x152.png
-        ├── apple-touch-icon-167x167.png
-        ├── apple-touch-icon-180x180.png
-        ├── favicon-16x16.png
-        ├── favicon-32x32.png
-        ├── icon-48x48.png
-        ├── icon-72x72.png
-        ├── icon-96x96.png
-        ├── icon-128x128.png
-        ├── icon-144x144.png
-        ├── icon-152x152.png
-        ├── icon-192x192.png
-        ├── icon-384x384.png
-        └── icon-512x512.png
+    ├── favicon.ico          # Favicon
+    ├── manifest.json        # PWA manifest
+    ├── service-worker.js    # Service worker
+    └── icons/               # App icons in various sizes
+        ├── apple-touch-icon-152x152.png
+        ├── apple-touch-icon-167x167.png
+        ├── apple-touch-icon-180x180.png
+        ├── favicon-16x16.png
+        ├── favicon-32x32.png
+        ├── icon-48x48.png
+        ├── icon-72x72.png
+        ├── icon-96x96.png
+        ├── icon-128x128.png
+        ├── icon-144x144.png
+        ├── icon-152x152.png
+        ├── icon-192x192.png
+        ├── icon-384x384.png
+        └── icon-512x512.png
 
 ### Technologies Used
 
