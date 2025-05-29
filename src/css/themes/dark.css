@@ -46,13 +46,6 @@ body[data-theme="dark"] #teams-count {
 body[data-theme="dark"] button {
   background-color: var(--accent-dark);
   color: #000000; /* Dark text on light accent */
-  border: none;
-  border-radius: var(--border-radius);
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 8px 16px;
 }
 
 /* Special style for generate button */

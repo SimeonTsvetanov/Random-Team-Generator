@@ -86,6 +86,17 @@ body {
     color var(--transition-speed);
 }
 
+/* Base button styles - font size set once for consistency across themes */
+button {
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 8px 16px;
+  border: none;
+}
+
 .app-container {
   min-height: 100vh;
   max-height: 100vh;
