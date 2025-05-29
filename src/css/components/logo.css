@@ -1,13 +1,12 @@
 /**
- * Logo Component Styles
- * Handles logo display, hover effects, and responsive sizing
+ * Logo Component Styles and Header Title
+ * Handles logo display, header title positioning, and animations
  * @author Simeon Tsvetanov
  */
 
 .logo {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
   flex-shrink: 0;
 }
 
@@ -25,20 +24,80 @@
   transform: scale(1.1);
 }
 
-.logo__text {
+/* Header title styles */
+.header__title {
   font-size: clamp(1rem, 3vw, 1.5rem);
   font-weight: bold;
-  color: inherit;
   white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent-secondary-dark);
+  opacity: 1;
+  z-index: 2;
+  font-family: "Share Tech Mono", "Fira Mono", "Consolas", "Menlo", monospace;
   overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 60vw;
+  text-transform: uppercase;
+  width: 0;
+  border-right: 2px solid var(--accent-secondary-dark);
+  animation: typewriter 1.5s steps(15, end) 0.2s 1 normal both,
+    blinkTextCursor 0.8s steps(1) infinite;
+}
+
+.header__title.typed {
+  border-right: none;
+  animation: none !important; /* Using !important to override any other animations */
+  width: 15ch;
+}
+
+/* Light theme color */
+body[data-theme="light"] .header__title {
+  color: var(--accent-secondary-light);
+  border-right: 2px solid var(--accent-secondary-light);
+}
+
+/* Ensure border is removed in light theme too when animation completes */
+body[data-theme="light"] .header__title.typed {
+  border-right: none;
+  animation: none !important; /* Explicitly override for light theme */
+}
+
+/* Typewriter effect keyframes */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 15ch;
+  }
+}
+
+/* Text cursor blink effect keyframes */
+@keyframes blinkTextCursor {
+  0%,
+  100% {
+    border-right-color: inherit;
+  }
+  50% {
+    border-right-color: transparent;
+  }
 }
 
 /* Mobile optimizations */
 @media (max-width: 768px) {
-  .logo__text {
+  .header__title {
     font-size: clamp(0.9rem, 4vw, 1.2rem);
-    max-width: 50vw;
   }
 }
+
+/* Very small screens - hide title to prevent overlap */
+@media (max-width: 480px) {
+  .header__title {
+    display: none;
+  }
+}
+
+/* Add a script to toggle the .typed class after animation */

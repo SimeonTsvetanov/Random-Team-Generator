@@ -67,9 +67,7 @@ class MainInput {
       if (value === "" || isNaN(parseInt(value)) || parseInt(value) < 2) {
         this.updateTeamCount(2);
       }
-    });
-
-    // Handle input changes
+    }); // Handle input changes
     this.namesList.addEventListener("input", (e) => {
       const input = e.target;
       if (input.tagName === "INPUT") {
@@ -93,6 +91,18 @@ class MainInput {
         }
 
         this.saveNames();
+      }
+    });
+
+    // Improved click handling for better input area UX
+    this.namesList.addEventListener("click", (e) => {
+      // If clicking directly on the names list (not a child element), focus the last input
+      if (e.target === this.namesList) {
+        const lastInput =
+          this.namesList.lastElementChild?.querySelector(".name-input");
+        if (lastInput) {
+          lastInput.focus();
+        }
       }
     });
 

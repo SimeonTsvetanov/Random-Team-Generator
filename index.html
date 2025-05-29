@@ -55,6 +55,10 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="src/css/main.css" />
     <!-- Component styles -->
     <link rel="stylesheet" href="src/css/components/logo.css" />
@@ -76,16 +80,55 @@
       <!-- Logo and Theme Switch -->
       <header class="header">
         <div id="logo"></div>
+        <h1 class="header__title">TEAMS GENERATOR</h1>
         <div id="theme-switch"></div>
       </header>
+      <script>
+        // Remove the cursor after the typewriter animation
+        window.addEventListener("DOMContentLoaded", function () {
+          var title = document.querySelector(".header__title");
+          if (title) {
+            var duration = 1700; // 1.5s typewriter + 0.2s delay
+            setTimeout(function () {
+              title.classList.add("typed");
+              // Force the border to be removed in all theme states
+              title.style.borderRight = "none";
+            }, duration);
+          }
+
+          // Improved input focus logic for custom name inputs
+          var inputArea = document.getElementById("input-area");
+          if (inputArea) {
+            inputArea.addEventListener("click", function (e) {
+              // Check if the click is directly on the input-container or names-list
+              var classList = e.target.classList;
+              if (
+                classList.contains("input-container") ||
+                classList.contains("names-list")
+              ) {
+                // Find the last input field and focus it
+                var namesList = document.querySelector(".names-list");
+                if (namesList) {
+                  var lastInput =
+                    namesList.lastElementChild?.querySelector(".name-input");
+                  if (lastInput) {
+                    lastInput.focus();
+                  }
+                }
+              }
+            });
+          }
+        });
+      </script>
 
       <!-- Main Content -->
       <main class="main">
         <div id="main-input" class="main-input">
-          <div class="input-container">
+          <div class="input-container" id="input-area">
             <textarea
               id="names-input"
               placeholder="Enter names (one per line)..."
+              autofocus
             ></textarea>
           </div>
           <div class="team-count-container">
