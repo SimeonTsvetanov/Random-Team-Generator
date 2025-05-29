@@ -101,6 +101,8 @@ class TeamDisplay {
       // Add animations
       icon.classList.add("spin-once");
       teamBoxes.forEach((box) => box.classList.add("refresh"));
+      // Hide scrollbar during animation
+      this.teamsContainer.classList.add("refresh-animation");
 
       // Update teams after a short delay
       setTimeout(() => {
@@ -126,8 +128,12 @@ class TeamDisplay {
             });
 
           // Remove animation classes after animation completes
-          icon.classList.remove("spin-once");
-          teamBoxes.forEach((box) => box.classList.remove("refresh"));
+          setTimeout(() => {
+            icon.classList.remove("spin-once");
+            teamBoxes.forEach((box) => box.classList.remove("refresh"));
+            // Re-enable scrollbar
+            this.teamsContainer.classList.remove("refresh-animation");
+          }, 300);
         }, 300);
       }, 150);
     }
