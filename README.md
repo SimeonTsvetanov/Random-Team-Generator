@@ -84,6 +84,7 @@ Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Tea
 
 ### Project Structure
 
+```
 /
 ├── index.html               # Main HTML file
 ├── LICENSE                  # MIT license file
@@ -143,6 +144,7 @@ Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Tea
         ├── icon-192x192.png
         ├── icon-384x384.png
         └── icon-512x512.png
+```
 
 ### Technologies Used
 
