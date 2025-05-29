@@ -144,7 +144,6 @@ Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Tea
         ├── icon-384x384.png
         └── icon-512x512.png
 
-
 ### Technologies Used
 
 - 🎨 HTML5 & CSS3
