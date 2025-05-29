@@ -22,7 +22,6 @@ A modern Progressive Web App for quickly and fairly dividing people into teams.
 ### Core Functionality
 
 - 🎯 **Smart Team Generation** - Fair and random team distribution
-- 📊 **Real-time Participant Counter** - Instantly see how many people are in your list
 - 🔄 **Quick Refresh** - Generate new team combinations with one click
 - 📋 **Copy to Clipboard** - Easily share your teams
 - ✅ **Smart Input Validation** - Automatically handles empty lines and spaces
@@ -49,7 +48,7 @@ Try it now: [Random Team Generator](https://your-demo-link-here.com)
 
 ### As a PWA
 
-1. Visit the [web app](https://your-app-link-here.com)
+1. Visit the [web app](https://simeontsvetanov.github.io/Random-Team-Generator/)
 2. Your browser will show an "Add to Home Screen" prompt
 3. Click "Install" to add it to your device
 
@@ -59,7 +58,7 @@ Try it now: [Random Team Generator](https://your-demo-link-here.com)
 
 # Clone the repository
 
-git clone https://github.com/yourusername/random-team-generator.git
+git clone https://github.com/SimeonTsvetanov/Random-Team-Generator
 
 # Navigate to project directory
 
@@ -98,24 +97,68 @@ python -m http.server 8000
 
 ### Project Structure
 
-\`\`\`
+```
 /
-├── index.html # Main HTML file
+├── index.html                # Main HTML file
+├── LICENSE                   # MIT license file
+├── README.md                 # Project documentation
+├── RTG.png                   # Main application image
+├── generate-icons.ps1        # PowerShell script for icon generation
 ├── src/
-│ ├── js/
-│ │ ├── components/ # UI components
-│ │ ├── utils/ # Helper functions
-│ │ └── main.js # App entry point
-│ ├── css/
-│ │ ├── components/ # Component styles
-│ │ ├── layout/ # Layout styles
-│ │ └── themes/ # Theme styles
-│ └── assets/
-│ └── images/ # Images and icons
+│   ├── js/
+│   │   ├── components/       # UI components
+│   │   │   ├── ErrorMessage.js
+│   │   │   ├── Logo.js
+│   │   │   ├── MainInput.js
+│   │   │   ├── ParticipantCounter.js
+│   │   │   ├── TeamDisplay.js
+│   │   │   └── ThemeSwitch.js
+│   │   ├── utils/            # Helper functions
+│   │   │   ├── animations.js
+│   │   │   ├── inputValidator.js
+│   │   │   ├── storage.js
+│   │   │   └── teamGenerator.js
+│   │   └── main.js           # App entry point
+│   ├── css/
+│   │   ├── animations.css    # Animation styles
+│   │   ├── main.css          # Main CSS file
+│   │   ├── components/       # Component styles
+│   │   │   ├── error-message.css
+│   │   │   ├── logo.css
+│   │   │   ├── main-input.css
+│   │   │   ├── participant-counter.css
+│   │   │   ├── team-display.css
+│   │   │   └── theme-switch.css
+│   │   ├── layout/           # Layout styles
+│   │   │   ├── containers.css
+│   │   │   └── grid.css
+│   │   └── themes/           # Theme styles
+│   │       ├── dark.css
+│   │       └── light.css
+│   └── assets/
+│       └── images/           # Images and icons
+│           ├── logo.svg
+│           └── teams-logo.svg
 └── public/
-├── manifest.json # PWA manifest
-└── service-worker.js # Service worker
-\`\`\`
+    ├── favicon.ico          # Favicon
+    ├── manifest.json        # PWA manifest
+    ├── service-worker.js    # Service worker
+    └── icons/               # App icons in various sizes
+        ├── apple-touch-icon-152x152.png
+        ├── apple-touch-icon-167x167.png
+        ├── apple-touch-icon-180x180.png
+        ├── favicon-16x16.png
+        ├── favicon-32x32.png
+        ├── icon-48x48.png
+        ├── icon-72x72.png
+        ├── icon-96x96.png
+        ├── icon-128x128.png
+        ├── icon-144x144.png
+        ├── icon-152x152.png
+        ├── icon-192x192.png
+        ├── icon-384x384.png
+        └── icon-512x512.png
+```
 
 ### Technologies Used
 
@@ -141,12 +184,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Simeon Tsvetanov**
 
-- Website: [your-website.com](https://your-website.com)
-- Github: [@yourusername](https://github.com/yourusername)
+- Github: [@SimeonTsvetanov](https://github.com/SimeonTsvetanov)
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/random-team-generator/issues).
+Contributions, issues and feature requests are welcome! Feel free to check the [issues page](https://github.com/SimeonTsvetanov/Random-Team-Generator/issues).
 
 1. Fork the Project
 2. Create your Feature Branch (\`git checkout -b feature/AmazingFeature\`)
