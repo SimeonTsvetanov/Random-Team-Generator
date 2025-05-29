@@ -1,8 +1,8 @@
-# 🎲 Random Team Generator
+# 🎲 [Random Team Generator](https://simeontsvetanov.github.io/Random-Team-Generator/)
 
 <div align="center">
 
-![Random Team Generator Logo](public/icons/icon-96x96.png)
+[![Random Team Generator Logo](public/icons/icon-96x96.png)](https://simeontsvetanov.github.io/Random-Team-Generator/)
 
 A modern Progressive Web App for quickly and fairly dividing people into teams.
 
