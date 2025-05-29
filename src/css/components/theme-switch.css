@@ -3,17 +3,24 @@
   align-items: center;
   justify-content: flex-end;
   position: relative;
+  flex-shrink: 0;
 }
 
 .theme-switch {
   position: relative;
   cursor: pointer;
-  font-size: 24px;
+  font-size: clamp(20px, 3vw, 28px);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: clamp(36px, 6vw, 48px);
+  height: clamp(36px, 6vw, 48px);
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed);
+}
+
+.theme-switch:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .theme-switch__toggle {
@@ -28,7 +35,7 @@
   font-family: "Material Icons";
   content: "light_mode"; /* Sun icon in dark theme */
   color: #fff;
-  font-size: 24px;
+  font-size: clamp(20px, 3vw, 28px);
   transition: var(--transition-speed);
 }
 

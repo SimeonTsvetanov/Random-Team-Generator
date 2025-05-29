@@ -1,28 +1,30 @@
 .main-input {
   width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-md);
 }
 
 .input-container {
   position: relative;
   width: 100%;
-  margin-bottom: 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .names-list {
   width: 100%;
-  height: clamp(200px, 40vh, 300px); /* Reduced height */
-  padding: 4px 0;
+  height: 100%;
+  padding: var(--spacing-xs) 0;
   border-radius: var(--border-radius);
   overflow-y: auto;
   background: var(--bg-primary-dark);
   border: 1px solid var(--divider-dark);
   scrollbar-width: thin;
   scrollbar-gutter: stable;
+  scrollbar-color: var(--accent-dark) transparent;
 }
 
 body[data-theme="light"] .names-list {
@@ -31,22 +33,22 @@ body[data-theme="light"] .names-list {
 }
 
 .names-list::-webkit-scrollbar {
-  width: 6px;
+  width: 12px;
 }
 
 .names-list::-webkit-scrollbar-track {
   background: transparent;
-  border-radius: 3px;
+  border-radius: 6px;
 }
 
 .names-list::-webkit-scrollbar-thumb {
-  background-color: rgba(var(--scrollbar-color-rgb), 0.2);
-  border-radius: 3px;
+  background-color: var(--accent-dark);
+  border-radius: 6px;
   transition: background-color 0.2s ease;
 }
 
 .names-list:hover::-webkit-scrollbar-thumb {
-  background-color: rgba(var(--scrollbar-color-rgb), 0.4);
+  background-color: var(--button-hover-dark);
 }
 
 .names-list::-webkit-scrollbar-thumb:hover {
@@ -56,9 +58,9 @@ body[data-theme="light"] .names-list {
 .name-item {
   display: flex;
   align-items: center;
-  padding: 2px 12px;
+  padding: var(--spacing-xs) var(--spacing-sm);
   border-bottom: 1px solid var(--divider-dark);
-  font-size: clamp(14px, 1.8vh, 16px);
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
   line-height: 1.5;
   transition: background-color 0.2s ease;
 }
@@ -81,9 +83,9 @@ body[data-theme="light"] .name-item {
   border: none;
   color: inherit;
   font-family: inherit;
-  font-size: clamp(14px, 1.8vh, 16px);
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
   line-height: 1.5;
-  padding: 8px 0;
+  padding: var(--spacing-xs) 0;
   margin: 0;
   width: 100%;
   cursor: text;
@@ -106,14 +108,14 @@ body[data-theme="light"] .name-item {
 
 .delete-name {
   cursor: pointer;
-  padding: 4px;
-  width: 24px;
-  height: 24px;
+  padding: var(--spacing-xs);
+  width: clamp(20px, 3vw, 28px);
+  height: clamp(20px, 3vw, 28px);
   color: var(--text-secondary-dark);
   background: transparent;
   border: none;
   outline: none;
-  font-size: 18px;
+  font-size: clamp(16px, 2vw, 20px);
   line-height: 1;
   transition: all 0.2s ease;
   opacity: 0.4;
@@ -121,8 +123,8 @@ body[data-theme="light"] .name-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
-  margin: 0 4px;
+  border-radius: var(--border-radius);
+  margin: 0 var(--spacing-xs);
 }
 
 .delete-name:hover {
@@ -131,127 +133,106 @@ body[data-theme="light"] .name-item {
 }
 
 #names-input {
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-sm);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  line-height: 1.5;
+  border: 1px solid var(--divider-dark);
+  border-radius: var(--border-radius);
+  background: var(--bg-primary-dark);
+  color: var(--text-primary-dark);
+  resize: none;
+  font-family: inherit;
+  transition: all var(--transition-speed);
+  outline: none;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-dark) transparent;
   display: none; /* Hide original textarea */
 }
 
-@media (max-width: 768px) and (orientation: portrait) {
-  #names-input {
-    height: 100%;
-    min-height: 45vh;
-  }
+#names-input::placeholder {
+  color: var(--text-secondary-dark);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+#names-input:focus {
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 0 2px rgba(var(--accent-color-rgb), 0.2);
+}
+
+/* Light theme styles */
+body[data-theme="light"] #names-input {
+  background: var(--bg-primary-light);
+  color: var(--text-primary-light);
+  border-color: var(--divider-light);
+}
+
+body[data-theme="light"] #names-input::placeholder {
+  color: var(--text-secondary-light);
+}
+
+body[data-theme="light"] #names-input:focus {
+  border-color: var(--accent-light);
 }
 
 .team-count-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(0.5rem, 2vh, 1rem);
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
 }
 
 .team-count-label {
   color: var(--text-secondary-dark);
-  font-size: clamp(14px, 1.6vh, 16px);
+  font-size: clamp(0.7rem, 1.3vw, 0.9rem);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 
-@media (max-width: 768px) and (orientation: portrait) {
-  .team-count-label {
-    font-size: 0.8rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .controls {
-    gap: 0.25rem;
-  }
-
-  .icon-button {
-    width: 32px;
-    height: 32px;
-  }
-
-  #teams-count {
-    width: 50px;
-    height: 32px;
-    font-size: 0.9rem;
-  }
-  .generate-button {
-    height: 32px;
-    padding: 0 1rem;
-    min-width: auto;
-  }
-}
-
-/* Special landscape mode for mobile */
-@media (max-height: 500px) and (orientation: landscape) {
+/* Mobile optimizations - simplified */
+@media (max-width: 768px) {
   .team-count-container {
-    padding: 4px 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    gap: var(--spacing-xs);
+  }
+}
+
+/* Landscape mobile optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  .main-input {
+    flex-direction: row;
+    gap: var(--spacing-lg);
   }
 
-  .team-count-label {
-    font-size: 0.9rem;
-    text-align: center;
-    margin: 0;
+  .input-container {
+    flex: 2;
   }
 
-  .controls {
-    gap: 8px;
-  }
-  .generate-button {
-    margin: 8px 0 0 0;
-    width: 100%;
-    max-width: 200px;
-    height: 32px;
-  }
-
-  .icon-button {
-    width: 32px;
-    height: 32px;
-  }
-
-  #teams-count {
-    width: 50px;
-    height: 32px;
-    font-size: 0.9rem;
-  }
-  .generate-button {
-    margin: 8px 0;
-    height: 32px;
-    min-height: 32px;
-    padding: 0 16px;
-  }
-
-  .names-list {
-    height: 100%;
-  }
-
-  .name-input {
-    font-size: 0.9rem;
-    padding: 6px 0;
+  .team-count-container {
+    flex: 1;
+    justify-content: center;
+    min-width: clamp(180px, 25vw, 250px);
   }
 }
 
 .controls {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin: 0 auto;
-  position: relative;
+  gap: var(--spacing-sm);
+  justify-content: center;
 }
 
 #teams-count {
-  width: 60px;
-  height: 36px;
+  width: clamp(50px, 8vw, 70px);
+  height: clamp(32px, 5vh, 42px);
   padding: 0;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   text-align: center;
-  font-size: 16px;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   font-weight: 500;
   font-family: "Poppins", sans-serif;
   border: 1px solid transparent;
@@ -284,38 +265,39 @@ body[data-theme="light"] #teams-count {
 }
 
 .icon-button {
-  width: 36px;
-  height: 36px;
+  width: clamp(32px, 5vh, 42px);
+  height: clamp(32px, 5vh, 42px);
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   font-family: "Poppins", sans-serif;
   border: none;
   transition: all 0.2s ease;
 }
 
 .icon-button .material-icons {
-  font-size: 20px;
+  font-size: clamp(18px, 2.5vw, 24px);
   font-weight: 500;
 }
 
 .generate-button {
-  height: 36px;
-  padding: 0 1.5rem;
+  height: clamp(36px, 6vh, 48px);
+  padding: 0 var(--spacing-lg);
   font-weight: 500;
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-radius: 8px;
-  margin: 4px auto;
+  border-radius: var(--border-radius);
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
-  min-width: calc(60px + 2 * 36px + 2 * 0.5rem);
+  min-width: clamp(120px, 20vw, 180px);
   transition: all 0.2s ease;
   background-color: var(--accent-secondary-dark);
   color: #000000;
+  font-size: clamp(0.8rem, 1.3vw, 1rem);
+  margin-top: var(--spacing-xs);
 }

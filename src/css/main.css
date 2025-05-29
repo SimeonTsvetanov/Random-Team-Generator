@@ -11,6 +11,7 @@ html,
 body {
   height: 100%;
   overflow: hidden;
+  font-size: clamp(14px, 1.5vw, 18px); /* Responsive base font size */
 }
 
 *::-webkit-scrollbar {
@@ -71,11 +72,20 @@ body {
   --scrollbar-light: rgba(0, 0, 0, 0.12);
 
   /* Common variables */
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 2rem;
-  --border-radius: 8px;
+  --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --spacing-sm: clamp(0.5rem, 1.5vw, 1rem);
+  --spacing-md: clamp(1rem, 2vw, 1.5rem);
+  --spacing-lg: clamp(1.5rem, 3vw, 2.5rem);
+  --spacing-xl: clamp(2rem, 4vw, 3rem);
+  --border-radius: clamp(4px, 0.5vw, 8px);
   --transition-speed: 0.3s;
+  /* Responsive container widths */
+  --container-max-width: clamp(320px, 90vw, 1200px);
+  --main-content-width: clamp(280px, 50vw, 600px);
+  --side-margin: clamp(0px, 25vw, 300px);
+
+  /* Header spacing */
+  --header-padding: clamp(var(--spacing-xs), 2vw, var(--spacing-md));
 }
 
 body {
@@ -98,14 +108,35 @@ button {
 }
 
 .app-container {
-  min-height: 100vh;
-  max-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: var(--spacing-md);
-  max-width: 1200px;
-  margin: 0 auto;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: var(--side-margin) var(--main-content-width) var(
+      --side-margin
+    );
+  grid-template-areas:
+    "header-left header header-right"
+    "main-left main main-right"
+    "footer-left footer footer-right";
+  gap: 0;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    grid-template-columns: var(--spacing-sm) 1fr var(--spacing-sm);
+    --main-content-width: calc(100vw - 2 * var(--spacing-sm));
+    --side-margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    grid-template-columns: var(--spacing-xs) 1fr var(--spacing-xs);
+    --main-content-width: calc(100vw - 2 * var(--spacing-xs));
+  }
 }
 
 .hidden {

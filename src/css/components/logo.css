@@ -2,11 +2,12 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  flex-shrink: 0;
 }
 
 .logo__image {
-  width: 40px;
-  height: 40px;
+  width: clamp(32px, 5vw, 48px);
+  height: clamp(32px, 5vw, 48px);
   transition: transform var(--transition-speed);
   object-fit: contain;
   image-rendering: -webkit-optimize-contrast;
@@ -19,17 +20,19 @@
 }
 
 .logo__text {
-  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-size: clamp(1rem, 3vw, 1.5rem);
   font-weight: bold;
   color: inherit;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 60vw;
 }
 
-@media (max-width: 768px) and (orientation: portrait) {
+/* Mobile optimizations */
+@media (max-width: 768px) {
   .logo__text {
-    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
-    max-width: 60vw;
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+    max-width: 50vw;
   }
 }

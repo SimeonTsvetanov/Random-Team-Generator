@@ -33,18 +33,18 @@ body[data-theme="light"] .teams-display {
 }
 
 .teams-display__content {
-  border-radius: 8px;
-  padding: clamp(var(--spacing-md), 2vh, var(--spacing-lg))
-    clamp(var(--spacing-md), 2vh, var(--spacing-lg)) 0;
-  max-width: 800px;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  max-width: clamp(320px, 90vw, 1000px);
   width: 95%;
-  max-height: 95vh;
+  max-height: 90vh;
   position: relative;
   display: flex;
   flex-direction: column;
   transform: translateY(20px);
   opacity: 0;
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  overflow: hidden;
 }
 
 /* Dark theme content */
@@ -68,13 +68,17 @@ body[data-theme="light"] .teams-display__content {
 
 .teams-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(200px, 25vw, 300px), 1fr)
+  );
   gap: var(--spacing-md);
   padding: var(--spacing-md);
-  overflow-y: auto; /* Use auto to show scrollbar only when needed */
-  max-height: calc(90vh - 120px);
-  scrollbar-width: auto; /* Firefox - match main scrollbar */
-  scrollbar-color: var(--accent-dark) transparent; /* Firefox - use accent color */
+  overflow-y: auto;
+  max-height: calc(90vh - clamp(100px, 15vh, 140px));
+  scrollbar-width: auto;
+  scrollbar-color: var(--accent-dark) transparent;
+  flex: 1;
 }
 
 /* Base scrollbar styles - match main input area accent color */
@@ -110,7 +114,7 @@ body[data-theme="light"] .teams-display__content {
 
 .team-box {
   padding: var(--spacing-md);
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   transition: all 0.3s ease-out;
   opacity: 0;
   transform: translateY(20px);
@@ -123,11 +127,11 @@ body[data-theme="dark"] .team-box {
 }
 
 .team-box h3 {
-  margin-bottom: calc(var(--spacing-sm) / 2);
-  font-size: 1.1rem;
-  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 600;
   text-align: center;
-  padding-bottom: calc(var(--spacing-sm) / 2);
+  padding-bottom: var(--spacing-xs);
 }
 
 body[data-theme="dark"] .team-box h3 {
@@ -142,9 +146,9 @@ body[data-theme="dark"] .team-box h3 {
 }
 
 .team-box li {
-  padding: clamp(0.3rem, 1vh, 0.5rem) 0;
-  font-size: clamp(0.875rem, 2vh, 1rem);
-  line-height: 1.4;
+  padding: var(--spacing-xs) 0;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  line-height: 1.5;
 }
 
 body[data-theme="dark"] .team-box li {
@@ -160,13 +164,14 @@ body[data-theme="dark"] .team-box li {
   display: flex;
   justify-content: center;
   gap: var(--spacing-md);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
   margin-top: auto;
   position: sticky;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 2;
+  flex-shrink: 0;
 }
 
 body[data-theme="dark"] .actions {
@@ -175,9 +180,9 @@ body[data-theme="dark"] .actions {
 }
 
 .actions .icon-button {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
+  width: clamp(36px, 6vw, 48px);
+  height: clamp(36px, 6vw, 48px);
+  border-radius: var(--border-radius);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,7 +203,7 @@ body[data-theme="dark"] .actions {
 }
 
 .actions .icon-button .material-icons {
-  font-size: 20px;
+  font-size: clamp(18px, 3vw, 24px);
   font-weight: 500;
 }
 
