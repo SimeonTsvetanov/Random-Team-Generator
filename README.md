@@ -42,7 +42,7 @@ A modern Progressive Web App for quickly and fairly dividing people into teams.
 
 ## 🚀 Live Demo
 
-Try it now: [Random Team Generator](https://your-demo-link-here.com)
+Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Team-Generator/)
 
 ## 📥 Installation
 
