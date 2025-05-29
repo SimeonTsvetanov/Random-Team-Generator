@@ -13,7 +13,6 @@ A modern Progressive Web App for quickly and fairly dividing people into teams.
 [Demo](#🚀-live-demo) •
 [Installation](#📥-installation) •
 [Usage](#💡-usage) •
-[Development](#🛠️-development)
 
 </div>
 
@@ -51,29 +50,6 @@ Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Tea
 1. Visit the [web app](https://simeontsvetanov.github.io/Random-Team-Generator/)
 2. Your browser will show an "Add to Home Screen" prompt
 3. Click "Install" to add it to your device
-
-### Local Development
-
-\`\`\`
-bash
-
-# Clone the repository
-
-git clone https://github.com/SimeonTsvetanov/Random-Team-Generator
-
-# Navigate to project directory
-
-cd random-team-generator
-
-# Open in browser (using any local server)
-
-# For example, using Python's built-in server:
-
-python -m http.server 8000
-
-# Or using VS Code's Live Server extension
-
-\`\`\`
 
 ## 💡 Usage
 
