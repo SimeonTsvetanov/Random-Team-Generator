@@ -183,6 +183,15 @@ body[data-theme="light"] .team-box h3 {
   line-height: 1.2;
 }
 
+/* Increase item size on mobile by 30% */
+@media (max-width: 768px) {
+  .team-box li {
+    padding: calc(var(--spacing-xs) * 0.55) 0;
+    font-size: clamp(0.91rem, 1.43vw, 1.1rem); /* 30% larger */
+    line-height: 1.3;
+  }
+}
+
 body[data-theme="dark"] .team-box li {
   color: var(--text-secondary-dark);
   border-bottom: 1px solid var(--divider-dark);
@@ -195,7 +204,7 @@ body[data-theme="light"] .team-box li {
 }
 
 .team-box li:last-child {
-  border-bottom: none;
+  border-bottom: none !important;
 }
 
 /* Team color classes for dynamic styling */

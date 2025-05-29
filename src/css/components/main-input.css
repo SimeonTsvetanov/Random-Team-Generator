@@ -27,6 +27,18 @@
   border-color: var(--accent-dark);
 }
 
+/* Remove focus border from names list */
+.names-list:focus,
+.names-list:focus-within {
+  border-color: var(--divider-dark);
+  outline: none;
+}
+
+body[data-theme="light"] .names-list:focus,
+body[data-theme="light"] .names-list:focus-within {
+  border-color: var(--divider-light);
+}
+
 .names-list {
   width: 100%;
   height: 100%;
@@ -108,7 +120,7 @@ body[data-theme="light"] .name-item {
 
 .name-input:focus {
   outline: none;
-  background-color: rgba(var(--accent-color-rgb), 0.05);
+  background-color: transparent;
 }
 
 .name-input::placeholder {
@@ -116,9 +128,9 @@ body[data-theme="light"] .name-item {
   opacity: 0.7;
 }
 
-/* Style for the focused item */
+/* Style for the focused item - remove highlight */
 .name-item:focus-within {
-  background-color: rgba(var(--accent-color-rgb), 0.05);
+  background-color: transparent;
 }
 
 .delete-name {
@@ -213,6 +225,25 @@ body[data-theme="light"] #names-input:focus {
 @media (max-width: 768px) {
   .team-count-container {
     gap: var(--spacing-xs);
+  }
+
+  /* Increase mobile item sizes by 30% */
+  .name-item {
+    padding: calc(var(--spacing-xs) * 0.8) var(--spacing-sm);
+    font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+    line-height: 1.4;
+  }
+
+  .name-input {
+    font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+    line-height: 1.4;
+    padding: calc(var(--spacing-xs) * 0.6) 0;
+  }
+
+  .delete-name {
+    width: clamp(22px, 3.2vw, 30px);
+    height: clamp(22px, 3.2vw, 30px);
+    font-size: clamp(16px, 2.3vw, 22px);
   }
 }
 
