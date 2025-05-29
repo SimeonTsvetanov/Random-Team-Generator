@@ -54,7 +54,8 @@ Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Tea
 
 ### Local Development
 
-\`\`\`bash
+\`\`\`
+bash
 
 # Clone the repository
 
