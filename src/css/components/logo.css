@@ -1,3 +1,9 @@
+/**
+ * Logo Component Styles
+ * Handles logo display, hover effects, and responsive sizing
+ * @author Simeon Tsvetanov
+ */
+
 .logo {
   display: flex;
   align-items: center;

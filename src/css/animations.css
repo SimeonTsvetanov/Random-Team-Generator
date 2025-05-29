@@ -1,3 +1,10 @@
+/**
+ * Animation Styles
+ * Standardized animations using 0.3s ease-in-out timing for consistency
+ * Includes fade transitions, refresh effects, and button animations
+ * @author Simeon Tsvetanov
+ */
+
 /* Refresh button animation */
 @keyframes rotate {
   from {
@@ -70,15 +77,6 @@
     filter: brightness(1);
     opacity: 1;
   }
-}
-
-.team-box {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.team-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .team-box.refresh {

@@ -1,3 +1,10 @@
+/**
+ * Dark Theme Styles
+ * Material Design dark theme implementation with elevation and shadows
+ * Includes component overrides and theme-specific styling
+ * @author Simeon Tsvetanov
+ */
+
 body[data-theme="dark"] {
   background-color: var(--bg-primary-dark);
   color: var(--text-primary-dark);
@@ -75,22 +82,7 @@ body[data-theme="dark"] button:active {
   box-shadow: none;
 }
 
-/* Team container styles */
-body[data-theme="dark"] .team-box {
-  background-color: var(--bg-secondary-dark);
-  border: 1px solid var(--divider-dark);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-body[data-theme="dark"] .team-box h3 {
-  color: var(--text-primary-dark);
-  border-bottom: 1px solid var(--divider-dark);
-}
-
-body[data-theme="dark"] .team-box li {
-  color: var(--text-secondary-dark);
-  border-bottom: 1px solid var(--divider-dark);
-}
+/* Team container styles moved to team-display.css to avoid conflicts */
 
 /* Error message styles */
 body[data-theme="dark"] .error-message__content {

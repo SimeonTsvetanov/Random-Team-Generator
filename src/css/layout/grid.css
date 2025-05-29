@@ -1,3 +1,10 @@
+/**
+ * Grid Layout Styles
+ * Defines the main application grid structure (header, main, footer)
+ * Includes responsive breakpoints and mobile optimizations
+ * @author Simeon Tsvetanov
+ */
+
 /* Grid layouts */
 .header {
   grid-area: header;

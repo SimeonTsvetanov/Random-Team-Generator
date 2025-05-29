@@ -18,7 +18,6 @@ const ASSETS_TO_CACHE = [
   `${BASE_PATH}/src/js/utils/teamGenerator.js`,
   `${BASE_PATH}/src/js/utils/inputValidator.js`,
   `${BASE_PATH}/src/js/utils/storage.js`,
-  `${BASE_PATH}/src/js/utils/animations.js`,
   `${BASE_PATH}/src/js/components/Logo.js`,
   `${BASE_PATH}/src/js/components/ThemeSwitch.js`,
   `${BASE_PATH}/src/js/components/MainInput.js`,

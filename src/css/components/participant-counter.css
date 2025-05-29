@@ -1,3 +1,10 @@
+/**
+ * Participant Counter Component Styles
+ * Handles the floating counter badge showing current participant count
+ * Positioned above the input area with responsive sizing
+ * @author Simeon Tsvetanov
+ */
+
 .participant-counter {
   position: absolute;
   top: calc(-1 * var(--spacing-md));
@@ -25,15 +32,6 @@
   .participant-counter {
     top: calc(-1.2 * var(--spacing-md));
   }
-}
-
-.participant-counter:hover {
-  opacity: 1;
-}
-
-/* Make sure it's not hidden by default */
-.participant-counter:not(.hidden) {
-  display: block;
 }
 
 .participant-counter:hover {

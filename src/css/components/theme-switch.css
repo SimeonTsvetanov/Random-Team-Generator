@@ -1,3 +1,9 @@
+/**
+ * Theme Switch Component Styles
+ * Handles dark/light theme toggle button with Material Icons
+ * @author Simeon Tsvetanov
+ */
+
 #theme-switch {
   display: flex;
   align-items: center;

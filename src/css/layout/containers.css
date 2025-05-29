@@ -1,3 +1,10 @@
+/**
+ * Container Layout Styles
+ * Handles container structures, responsive grids, and mobile optimizations
+ * Includes teams container grid and actions layout
+ * @author Simeon Tsvetanov
+ */
+
 /* Container styles */
 .main-input {
   width: 100%;

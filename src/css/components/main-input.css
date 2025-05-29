@@ -1,3 +1,10 @@
+/**
+ * Main Input Component Styles
+ * Handles participant input area, team count controls, and generate button
+ * Includes scrollbar customization and responsive design
+ * @author Simeon Tsvetanov
+ */
+
 .main-input {
   width: 100%;
   margin: 0;

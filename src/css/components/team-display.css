@@ -1,3 +1,10 @@
+/**
+ * Team Display Modal Component Styles
+ * Handles modal animations, team box layouts, and responsive design
+ * Uses standardized 0.3s ease-in-out timing for consistency with error messages
+ * @author Simeon Tsvetanov
+ */
+
 .teams-display {
   position: fixed;
   top: 0;
@@ -10,11 +17,18 @@
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out,
+    backdrop-filter 0.3s ease-in-out;
 }
 
 /* Dark theme overlay - Material Design */
 body[data-theme="dark"] .teams-display {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+body[data-theme="dark"] .teams-display:not(.hidden) {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -22,6 +36,10 @@ body[data-theme="dark"] .teams-display {
 
 /* Light theme overlay */
 body[data-theme="light"] .teams-display {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+body[data-theme="light"] .teams-display:not(.hidden) {
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -41,9 +59,9 @@ body[data-theme="light"] .teams-display {
   position: relative;
   display: flex;
   flex-direction: column;
-  transform: translateY(20px);
+  transform: translateY(-10px);
   opacity: 0;
-  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   overflow: hidden;
 }
 
@@ -110,14 +128,15 @@ body[data-theme="light"] .teams-display__content {
 /* Firefox scrollbar hiding during animation */
 .teams-display .teams-container.refresh-animation {
   scrollbar-width: none !important;
+  /* Maintain fixed height during refresh to prevent shrinking */
+  min-height: var(--refresh-height, auto);
+  transition: none; /* Disable height transitions during refresh */
 }
 
 .team-box {
-  padding: calc(var(--spacing-md) * 0.8);
+  padding: calc(var(--spacing-xs) * 0.8);
   border-radius: var(--border-radius);
-  transition: all 0.3s ease-out;
-  opacity: 0;
-  transform: translateY(20px);
+  transition: all 0.3s ease-in-out;
 }
 
 body[data-theme="dark"] .team-box {
@@ -126,17 +145,30 @@ body[data-theme="dark"] .team-box {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Light theme styles */
+body[data-theme="light"] .team-box {
+  background-color: var(--bg-secondary-light);
+  border: 1px solid var(--divider-light);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
 .team-box h3 {
-  margin-bottom: calc(var(--spacing-sm) * 0.7);
-  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+  margin-bottom: calc(var(--spacing-xs) * 0.5);
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
   font-weight: 600;
   text-align: center;
-  padding-bottom: calc(var(--spacing-xs) * 0.7);
+  padding-bottom: calc(var(--spacing-xs) * 0.5);
 }
 
 body[data-theme="dark"] .team-box h3 {
   color: var(--text-primary-dark);
   border-bottom: 1px solid var(--divider-dark);
+}
+
+/* Light theme h3 styles */
+body[data-theme="light"] .team-box h3 {
+  color: var(--text-primary-light);
+  border-bottom: 1px solid var(--divider-light);
 }
 
 .team-box ul {
@@ -146,9 +178,9 @@ body[data-theme="dark"] .team-box h3 {
 }
 
 .team-box li {
-  padding: calc(var(--spacing-xs) * 0.6) 0;
-  font-size: clamp(0.75rem, 1.3vw, 0.9rem);
-  line-height: 1.3;
+  padding: calc(var(--spacing-xs) * 0.4) 0;
+  font-size: clamp(0.7rem, 1.1vw, 0.85rem);
+  line-height: 1.2;
 }
 
 body[data-theme="dark"] .team-box li {
@@ -156,22 +188,31 @@ body[data-theme="dark"] .team-box li {
   border-bottom: 1px solid var(--divider-dark);
 }
 
+/* Light theme li styles */
+body[data-theme="light"] .team-box li {
+  color: var(--text-secondary-light);
+  border-bottom: 1px solid var(--divider-light);
+}
+
 .team-box li:last-child {
   border-bottom: none;
 }
 
-.actions {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-md);
-  padding: var(--spacing-md);
-  margin-top: auto;
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  flex-shrink: 0;
+/* Team color classes for dynamic styling */
+.team-box.team-color-0 {
+  background-color: rgba(76, 175, 80, 0.1) !important;
+}
+.team-box.team-color-1 {
+  background-color: rgba(33, 150, 243, 0.1) !important;
+}
+.team-box.team-color-2 {
+  background-color: rgba(156, 39, 176, 0.1) !important;
+}
+.team-box.team-color-3 {
+  background-color: rgba(255, 152, 0, 0.1) !important;
+}
+.team-box.team-color-4 {
+  background-color: rgba(233, 30, 99, 0.1) !important;
 }
 
 body[data-theme="dark"] .actions {
@@ -229,4 +270,39 @@ body[data-theme="dark"] .actions {
 
 .spin-once {
   animation: singleSpin 0.5s ease-in-out forwards;
+}
+
+/* Animation states for team boxes */
+.team-box.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.team-box.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Actions initial state - hidden until teams are ready */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  margin-top: auto;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Actions visible state */
+.actions.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

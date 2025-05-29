@@ -1,3 +1,10 @@
+/**
+ * Light Theme Styles
+ * Material Design light theme implementation with clean aesthetics
+ * Includes component overrides and theme-specific styling
+ * @author Simeon Tsvetanov
+ */
+
 /* Light theme implementation following Material Design guidelines */
 body[data-theme="light"] {
   background-color: var(--bg-primary-light);
@@ -44,24 +51,7 @@ body[data-theme="light"] button:active {
   box-shadow: none;
 }
 
-/* Team container styles */
-body[data-theme="light"] .team-box {
-  background-color: var(--bg-secondary-light);
-  border: 1px solid var(--divider-light);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-body[data-theme="light"] .team-box h3 {
-  color: var(--text-primary-light);
-  border-bottom: 1px solid var(--divider-light);
-  font-size: clamp(1rem, 2.5vh, 1.1rem);
-  padding-bottom: clamp(0.3rem, 1vh, 0.5rem);
-}
-
-body[data-theme="light"] .team-box li {
-  color: var(--text-secondary-light);
-  border-bottom: 1px solid var(--divider-light);
-}
+/* Team container styles moved to team-display.css to avoid conflicts */
 
 /* Modal styles */
 body[data-theme="light"] .teams-display {

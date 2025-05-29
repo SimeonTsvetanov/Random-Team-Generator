@@ -91,7 +91,6 @@ Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Tea
 │   │   │   ├── TeamDisplay.js
 │   │   │   └── ThemeSwitch.js
 │   │   ├── utils/            # Helper functions
-│   │   │   ├── animations.js
 │   │   │   ├── inputValidator.js
 │   │   │   ├── storage.js
 │   │   │   └── teamGenerator.js

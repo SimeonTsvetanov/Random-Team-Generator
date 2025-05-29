@@ -1,3 +1,10 @@
+/**
+ * Main Stylesheet
+ * Core CSS variables, global styles, and responsive design foundation
+ * Material Design color system and theme variables
+ * @author Simeon Tsvetanov
+ */
+
 /* Scrollbar Styles */
 * {
   scrollbar-width: auto;

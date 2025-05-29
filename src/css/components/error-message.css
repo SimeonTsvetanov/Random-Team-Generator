@@ -1,3 +1,10 @@
+/**
+ * Error Message Component Styles
+ * Handles modal error display with standardized 0.3s ease-in-out animations
+ * Includes backdrop blur and theme-specific styling
+ * @author Simeon Tsvetanov
+ */
+
 .error-message {
   position: fixed;
   top: 0;
