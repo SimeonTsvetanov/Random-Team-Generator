@@ -30,6 +30,7 @@
   padding: 0;
   overflow: hidden;
   position: relative;
+  min-height: 0; /* Allow flexbox to shrink properly */
 }
 
 .footer {
@@ -43,6 +44,8 @@
   font-size: clamp(0.7rem, 1.2vw, 0.9rem);
   color: var(--text-secondary-dark);
   z-index: 10;
+  position: relative;
+  flex-shrink: 0; /* Prevent footer from shrinking */
 }
 
 /* Mobile optimizations */
@@ -74,5 +77,20 @@
     height: clamp(30px, 10vh, 45px);
     padding: var(--spacing-xs) 0;
     font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+  }
+}
+
+/* iOS specific optimizations */
+@supports (-webkit-appearance: none) {
+  .footer {
+    padding-bottom: max(var(--spacing-xs), env(safe-area-inset-bottom));
+  }
+}
+
+/* iOS PWA specific optimizations */
+@media (display-mode: standalone) {
+  .footer {
+    background: var(--bg-primary-dark);
+    border-top: 1px solid var(--divider-dark);
   }
 }

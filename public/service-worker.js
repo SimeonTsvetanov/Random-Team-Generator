@@ -44,7 +44,8 @@ self.addEventListener("install", (event) => {
       .then((cache) => {
         console.log("Caching app shell assets");
         return cache.addAll(ASSETS_TO_CACHE);
-      })      .then(() => {
+      })
+      .then(() => {
         return self.skipWaiting();
       })
   );
