@@ -52,6 +52,13 @@
   flex-shrink: 0; /* Prevent footer from shrinking */
 }
 
+.footer p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  line-height: 1;
+}
+
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .header {

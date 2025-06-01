@@ -179,9 +179,10 @@ button {
 .beer-icon {
   display: inline-block;
   text-decoration: none;
-  font-size: 1.4rem;
+  font-size: 1.6rem; /* Increased to match GitHub logo size */
   transition: transform 0.2s ease;
   margin-left: 4px;
+  vertical-align: middle; /* Align with GitHub logo */
 }
 
 .beer-icon:hover {
@@ -194,19 +195,21 @@ button {
   text-decoration: none;
   margin-right: 8px;
   transition: transform 0.2s ease;
+  vertical-align: middle; /* Ensure proper alignment */
 }
 
 .github-icon img {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 1.6rem;
+  height: 1.6rem;
   vertical-align: middle;
   filter: brightness(0.7);
-  transition: filter 0.2s ease;
+  transition: filter 0.2s ease, transform 0.2s ease;
+  display: inline-block; /* Ensure consistent rendering */
 }
 
 .github-icon:hover img {
   filter: brightness(1);
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 /* Buy me a beer text styling - clickable but no visual changes */
