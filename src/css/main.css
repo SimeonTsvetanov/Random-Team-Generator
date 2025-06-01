@@ -18,7 +18,7 @@ html,
 body {
   height: 100%;
   overflow: hidden;
-  font-size: clamp(14px, 1.5vw, 18px); /* Responsive base font size */
+  font-size: clamp(14px, 1.5vw, 18px);
 }
 
 *::-webkit-scrollbar {
@@ -42,38 +42,37 @@ body {
 /* Global styles */
 :root {
   /* Dark theme variables - Material Design dark theme */
-  --bg-primary-dark: #1e1e1e; /* Lighter background (was #121212) */
-  --bg-secondary-dark: #2d2d2d; /* Lighter surface 1 (was #1e1e1e) */
-  --bg-container-dark: #383838; /* Lighter surface 2 (was #2a2a2a) */
-  --text-primary-dark: rgba(255, 255, 255, 0.87); /* High-emphasis text */
-  --text-secondary-dark: rgba(255, 255, 255, 0.6); /* Medium-emphasis text */
-  --text-disabled-dark: rgba(255, 255, 255, 0.38); /* Disabled text */
-  --accent-dark: #bb86fc; /* Material Design purple accent */
-  --accent-secondary-dark: #00e5cc; /* Material Design teal accent for generate button */
-  --button-hover-dark: #9965da; /* Darker purple */
-  --button-active-dark: #7b40c0; /* Even darker purple */
-  --error-color-dark: #cf6679; /* Material Design dark theme error color */
-  --overlay-dark: rgba(0, 0, 0, 0.5); /* Standard overlay for modals */
-  --divider-dark: rgba(255, 255, 255, 0.12); /* Material divider color */
+  --bg-primary-dark: #1e1e1e;
+  --bg-secondary-dark: #2d2d2d;
+  --bg-container-dark: #383838;
+  --text-primary-dark: rgba(255, 255, 255, 0.87);
+  --text-secondary-dark: rgba(255, 255, 255, 0.6);
+  --text-disabled-dark: rgba(255, 255, 255, 0.38);
+  --accent-dark: #bb86fc;
+  --accent-secondary-dark: #00e5cc;
+  --button-hover-dark: #9965da;
+  --button-active-dark: #7b40c0;
+  --error-color-dark: #cf6679;
+  --overlay-dark: rgba(0, 0, 0, 0.5);
+  --divider-dark: rgba(255, 255, 255, 0.12);
   --scrollbar-dark: rgba(255, 255, 255, 0.12);
 
   /* RGB values for opacity adjustments */
   --scrollbar-color-rgb: 255, 255, 255;
   --accent-color-rgb: 187, 134, 252;
   --error-color-rgb: 207, 102, 121;
-
   /* Light theme variables - Material Design light theme */
   --bg-primary-light: #ffffff;
-  --bg-secondary-light: #f5f5f5; /* Surface 1 */
-  --bg-container-light: #ffffff; /* Surface container */
-  --text-primary-light: rgba(0, 0, 0, 0.87); /* High-emphasis text */
-  --text-secondary-light: rgba(0, 0, 0, 0.6); /* Medium-emphasis text */
-  --text-disabled-light: rgba(0, 0, 0, 0.38); /* Disabled text */
-  --accent-light: #bb86fc; /* Keep consistent with dark theme */
-  --accent-secondary-light: #00e5cc; /* Keep consistent with dark theme */
-  --button-hover-light: #9965da; /* Consistent with dark */
-  --button-active-light: #7b40c0; /* Consistent with dark */
-  --error-color-light: #b00020; /* Material Design light theme error color */
+  --bg-secondary-light: #f5f5f5;
+  --bg-container-light: #ffffff;
+  --text-primary-light: rgba(0, 0, 0, 0.87);
+  --text-secondary-light: rgba(0, 0, 0, 0.6);
+  --text-disabled-light: rgba(0, 0, 0, 0.38);
+  --accent-light: #bb86fc;
+  --accent-secondary-light: #00e5cc;
+  --button-hover-light: #9965da;
+  --button-active-light: #7b40c0;
+  --error-color-light: #b00020;
   --overlay-light: rgba(255, 255, 255, 0.5);
   --divider-light: rgba(0, 0, 0, 0.12);
   --scrollbar-light: rgba(0, 0, 0, 0.12);
@@ -103,7 +102,7 @@ body {
     color var(--transition-speed);
 }
 
-/* Base button styles - font size set once for consistency across themes */
+/* Base button styles */
 button {
   font-size: 1rem;
   border-radius: var(--border-radius);
@@ -155,4 +154,17 @@ button {
 
 .hidden {
   display: none !important;
+}
+
+/* Buy me a beer icon styling */
+.beer-icon {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+  margin-left: 4px;
+}
+
+.beer-icon:hover {
+  transform: scale(1.2);
 }

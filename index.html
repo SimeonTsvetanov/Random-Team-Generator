@@ -82,31 +82,27 @@
         <div id="logo"></div>
         <h1 class="header__title">TEAMS GENERATOR</h1>
         <div id="theme-switch"></div>
-      </header>
-      <script>
-        // Remove the cursor after the typewriter animation
+      </header>      <script>
+        // Typewriter animation completion handler
         window.addEventListener("DOMContentLoaded", function () {
           var title = document.querySelector(".header__title");
           if (title) {
-            var duration = 1700; // 1.5s typewriter + 0.2s delay
+            var duration = 1700;
             setTimeout(function () {
               title.classList.add("typed");
-              // Force the border to be removed in all theme states
               title.style.borderRight = "none";
             }, duration);
           }
 
-          // Improved input focus logic for custom name inputs
+          // Input focus enhancement for better UX
           var inputArea = document.getElementById("input-area");
           if (inputArea) {
             inputArea.addEventListener("click", function (e) {
-              // Check if the click is directly on the input-container or names-list
               var classList = e.target.classList;
               if (
                 classList.contains("input-container") ||
                 classList.contains("names-list")
               ) {
-                // Find the last input field and focus it
                 var namesList = document.querySelector(".names-list");
                 if (namesList) {
                   var lastInput =
@@ -175,9 +171,21 @@
             </div>
           </div>
         </div>
-      </main>      <!-- Footer -->
+      </main>
+      <!-- Footer -->
       <footer class="footer">
-        <p>Built by Simeon Tsvetanov</p>
+        <p>
+          If you like the app you can buy me a:
+          <a
+            href="https://www.buymeacoffee.com/SimeonTsvetanov"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="beer-icon"
+            title="Buy me a beer"
+          >
+            🍺
+          </a>
+        </p>
       </footer>
     </div>
     <!-- Scripts -->
@@ -191,10 +199,8 @@
     <script src="src/js/components/TeamDisplay.js"></script>
     <script src="src/js/components/ParticipantCounter.js"></script>
     <script src="src/js/main.js"></script>
-    <script>
-      // Register service worker with update handling
+    <script>      // Service worker registration with auto-update functionality
       if ("serviceWorker" in navigator) {
-        // Get the base path from the current URL
         const basePath = window.location.pathname.includes(
           "/Random-Team-Generator"
         )
@@ -223,9 +229,7 @@
                   newWorker.state === "installed" &&
                   navigator.serviceWorker.controller
                 ) {
-                  // New update available
                   console.log("New update available!");
-                  // Auto-refresh after a short delay
                   setTimeout(() => {
                     window.location.reload();
                   }, 1000);

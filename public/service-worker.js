@@ -1,4 +1,6 @@
-// Dynamic cache version based on timestamp - updates automatically
+// Service Worker for Random Team Generator PWA
+// Implements dynamic caching with automatic updates
+
 const CACHE_VERSION = "v" + Date.now();
 const CACHE_NAME = `team-generator-${CACHE_VERSION}`;
 const BASE_PATH = "/Random-Team-Generator";
@@ -37,33 +39,40 @@ const MAX_CACHE_AGE = 24 * 60 * 60 * 1000;
 self.addEventListener("install", (event) => {
   console.log("Service Worker installing...");
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log("Caching app shell assets");
-      return cache.addAll(ASSETS_TO_CACHE);
-    }).then(() => {
-      // Force the new service worker to activate immediately
-      return self.skipWaiting();
-    })
+    caches
+      .open(CACHE_NAME)
+      .then((cache) => {
+        console.log("Caching app shell assets");
+        return cache.addAll(ASSETS_TO_CACHE);
+      })      .then(() => {
+        return self.skipWaiting();
+      })
   );
 });
 
-// Activate event - clean up old caches and take control immediately
+// Activate event - clean up old caches and take control
 self.addEventListener("activate", (event) => {
   console.log("Service Worker activating...");
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames
-          .filter((name) => name.startsWith("team-generator-") && name !== CACHE_NAME)
-          .map((name) => {
-            console.log("Deleting old cache:", name);
-            return caches.delete(name);
-          })
-      );
-    }).then(() => {
-      // Take control of all clients immediately
-      return self.clients.claim();
-    })
+    caches
+      .keys()
+      .then((cacheNames) => {
+        return Promise.all(
+          cacheNames
+            .filter(
+              (name) =>
+                name.startsWith("team-generator-") && name !== CACHE_NAME
+            )
+            .map((name) => {
+              console.log("Deleting old cache:", name);
+              return caches.delete(name);
+            })
+        );
+      })
+      .then(() => {
+        // Take control of all clients immediately
+        return self.clients.claim();
+      })
   );
 });
 
@@ -113,18 +122,20 @@ self.addEventListener("fetch", (event) => {
   }
 
   // For CSS and JS files, use stale-while-revalidate strategy
-  if (url.pathname.endsWith('.css') || url.pathname.endsWith('.js')) {
+  if (url.pathname.endsWith(".css") || url.pathname.endsWith(".js")) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
-        const fetchPromise = fetch(event.request).then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
-            const responseClone = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(event.request, responseClone);
-            });
-          }
-          return networkResponse;
-        }).catch(() => cachedResponse);
+        const fetchPromise = fetch(event.request)
+          .then((networkResponse) => {
+            if (networkResponse && networkResponse.status === 200) {
+              const responseClone = networkResponse.clone();
+              caches.open(CACHE_NAME).then((cache) => {
+                cache.put(event.request, responseClone);
+              });
+            }
+            return networkResponse;
+          })
+          .catch(() => cachedResponse);
 
         // Return cached version immediately if available, otherwise wait for network
         return cachedResponse || fetchPromise;
@@ -139,7 +150,7 @@ self.addEventListener("fetch", (event) => {
       if (response) {
         return response;
       }
-      
+
       return fetch(event.request).then((response) => {
         if (!response || response.status !== 200 || response.type !== "basic") {
           return response;
