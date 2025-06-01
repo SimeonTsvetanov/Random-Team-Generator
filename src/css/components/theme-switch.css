@@ -15,18 +15,15 @@
 .theme-switch {
   position: relative;
   cursor: pointer;
-  font-size: clamp(20px, 3vw, 28px);
+  font-size: clamp(32px, 5vw, 48px); /* Match logo size */
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(36px, 6vw, 48px);
-  height: clamp(36px, 6vw, 48px);
-  border-radius: var(--border-radius);
-  transition: background-color var(--transition-speed);
+  transition: transform var(--transition-speed); /* Remove background, add scale transition */
 }
 
 .theme-switch:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1); /* Match logo hover effect */
 }
 
 .theme-switch__toggle {
@@ -41,7 +38,7 @@
   font-family: "Material Icons";
   content: "light_mode"; /* Sun icon in dark theme */
   color: #fff;
-  font-size: clamp(20px, 3vw, 28px);
+  font-size: clamp(32px, 5vw, 48px); /* Match logo size */
   transition: var(--transition-speed);
 }
 

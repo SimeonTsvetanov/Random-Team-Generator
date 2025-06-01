@@ -58,13 +58,13 @@ Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Tea
 
 ### PWA Installation Instructions
 
-| Platform | Browser | Installation Steps |
-|----------|---------|-------------------|
-| 🖥️ **Chrome Desktop** | Chrome/Edge | 1. Visit the [web app](https://simeontsvetanov.github.io/Random-Team-Generator/) → 2. Click the install icon (⊞) in the address bar → 3. Click "Install" |
-| 📱 **iOS (iPhone/iPad)** | Safari | 1. Open in Safari → 2. Tap the Share button (□↗) → 3. Scroll down and tap "Add to Home Screen" → 4. Tap "Add" |
-| 🤖 **Android** | Chrome | 1. Visit the web app → 2. Tap the "Add to Home Screen" banner/prompt → 3. Tap "Install" or "Add" |
-| 🔄 **Alternative Method** | Any Browser | 1. Open browser menu (⋮) → 2. Look for "Install app" or "Add to Home Screen" → 3. Follow the prompts |
-| ✨ **After Installation** | All Platforms | The app will appear on your home screen/desktop and work offline with automatic updates |
+| Platform                  | Browser       | Installation Steps                                                                                                                                       |
+| ------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🖥️ **Chrome Desktop**     | Chrome/Edge   | 1. Visit the [web app](https://simeontsvetanov.github.io/Random-Team-Generator/) → 2. Click the install icon (⊞) in the address bar → 3. Click "Install" |
+| 📱 **iOS (iPhone/iPad)**  | Safari        | 1. Open in Safari → 2. Tap the Share button (□↗) → 3. Scroll down and tap "Add to Home Screen" → 4. Tap "Add"                                            |
+| 🤖 **Android**            | Chrome        | 1. Visit the web app → 2. Tap the "Add to Home Screen" banner/prompt → 3. Tap "Install" or "Add"                                                         |
+| 🔄 **Alternative Method** | Any Browser   | 1. Open browser menu (⋮) → 2. Look for "Install app" or "Add to Home Screen" → 3. Follow the prompts                                                     |
+| ✨ **After Installation** | All Platforms | The app will appear on your home screen/desktop and work offline with automatic updates                                                                  |
 
 <a id="usage"></a>
 
@@ -73,13 +73,13 @@ Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Tea
 1. **Enter Names**
 
 - Type or paste names into the text area
-   - One name per line
-   - Empty lines are automatically ignored
+     - One name per line
+     - Empty lines are automatically ignored
 
 2. **Select Team Count**
 
 - Use + and - buttons to adjust number of teams
-   - Minimum of 2 teams required
+     - Minimum of 2 teams required
 
 3. **Generate Teams**
       - Click "GENERATE" to create random teams
