@@ -179,7 +179,7 @@ body[data-theme="light"] .team-box h3 {
 
 .team-box li {
   padding: calc(var(--spacing-xs) * 0.4) 0;
-  font-size: clamp(0.7rem, 1.1vw, 0.85rem);
+  font-size: clamp(0.75rem, 1.2vw, 0.9rem);
   line-height: 1.2;
 }
 
@@ -187,19 +187,19 @@ body[data-theme="light"] .team-box h3 {
 @media (max-width: 768px) {
   .team-box li {
     padding: calc(var(--spacing-xs) * 0.55) 0;
-    font-size: clamp(0.91rem, 1.43vw, 1.1rem); /* 30% larger */
+    font-size: clamp(0.98rem, 1.56vw, 1.17rem); /* 30% larger */
     line-height: 1.3;
   }
 }
 
 body[data-theme="dark"] .team-box li {
-  color: var(--text-secondary-dark);
+  color: var(--text-primary-dark);
   border-bottom: 1px solid var(--divider-dark);
 }
 
 /* Light theme li styles */
 body[data-theme="light"] .team-box li {
-  color: var(--text-secondary-light);
+  color: var(--text-primary-light);
   border-bottom: 1px solid var(--divider-light);
 }
 
