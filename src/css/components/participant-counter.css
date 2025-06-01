@@ -1,44 +1,51 @@
 /**
  * Participant Counter Component Styles
- * Handles the floating counter badge showing current participant count
- * Positioned above the input area with responsive sizing
+ * Handles inline numbering for each participant entry
+ * Numbers appear as buttons identical to delete buttons but on the left side
  * @author Simeon Tsvetanov
  */
 
-.participant-counter {
-  position: absolute;
-  top: calc(-1 * var(--spacing-md));
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--accent-dark);
-  color: var(--text-primary-dark);
-  padding: var(--spacing-xs) var(--spacing-md);
+.participant-number {
+  cursor: default;
+  padding: calc(var(--spacing-xs) * 0.5);
+  width: clamp(18px, 2.5vw, 24px);
+  height: clamp(18px, 2.5vw, 24px);
+  color: var(--text-secondary-dark);
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: clamp(14px, 1.8vw, 18px);
+  line-height: 1;
+  transition: all 0.2s ease;
+  opacity: 0.4;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: var(--border-radius);
-  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
-  opacity: 1;
-  transition: opacity var(--transition-speed);
-  text-align: center;
-  width: fit-content;
-  z-index: 10;
-  height: clamp(20px, 4vh, 28px);
-  line-height: clamp(20px, 4vh, 28px);
-  white-space: nowrap;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  pointer-events: none;
+  margin: 0 calc(var(--spacing-xs) * 1) 0 0;
+  visibility: hidden;
 }
 
-/* Mobile optimizations */
+.participant-number:hover {
+  opacity: 0.8;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Show number ONLY when input has content - same logic as delete button */
+.participant-number {
+  visibility: hidden;
+}
+
+.name-item.has-content .participant-number {
+  visibility: visible;
+}
+
+/* Mobile optimizations - match delete button sizing exactly */
 @media (max-width: 768px) {
-  .participant-counter {
-    top: calc(-1.2 * var(--spacing-md));
+  .participant-number {
+    width: clamp(22px, 3.2vw, 30px);
+    height: clamp(22px, 3.2vw, 30px);
+    font-size: clamp(16px, 2.3vw, 22px);
   }
-}
-
-.participant-counter:hover {
-  opacity: 1;
-}
-
-/* Make sure it's not hidden by default */
-.participant-counter:not(.hidden) {
-  display: block;
 }

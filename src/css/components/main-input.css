@@ -159,6 +159,15 @@ body[data-theme="light"] .name-item {
   background: rgba(255, 255, 255, 0.1);
 }
 
+/* Show delete button only when input has content */
+.delete-name {
+  visibility: hidden;
+}
+
+.name-item.has-content .delete-name {
+  visibility: visible;
+}
+
 #names-input {
   width: 100%;
   height: 100%;

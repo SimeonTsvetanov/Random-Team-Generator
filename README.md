@@ -31,6 +31,7 @@ A modern Progressive Web App for quickly and fairly dividing people into teams.
 - 🔄 **Quick Refresh** - Generate new team combinations with one click
 - 📋 **Copy to Clipboard** - Easily share your teams
 - ✅ **Smart Input Validation** - Automatically handles empty lines and spaces
+- 🔢 **Inline Participant Numbering** - Progressive numbering (1, 2, 3...) for easy organization
 
 ### Modern UI/UX
 
@@ -38,6 +39,8 @@ A modern Progressive Web App for quickly and fairly dividing people into teams.
 - 📱 **Fully Responsive** - Works perfectly on all devices
 - 💫 **Smooth Animations** - Beautiful transitions and feedback
 - 🎨 **Material Design** - Modern and clean interface
+- ⌨️ **Keyboard Navigation** - Arrow keys to move between inputs
+- 🗑️ **Smart Auto-Removal** - Empty inputs automatically disappear
 
 ### PWA Features
 
@@ -72,20 +75,23 @@ Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Tea
 
 1. **Enter Names**
 
-- Type or paste names into the text area
-     - One name per line
-     - Empty lines are automatically ignored
+   - Add participants one by one in individual input fields
+   - Progressive numbering appears automatically (1, 2, 3...)
+   - Press Enter to add a new participant
+   - Use arrow keys (↑/↓) to navigate between inputs
+   - Empty inputs automatically disappear after 500ms
+   - Each participant gets a numbered badge for easy organization
 
 2. **Select Team Count**
 
-- Use + and - buttons to adjust number of teams
-     - Minimum of 2 teams required
+   - Use + and - buttons to adjust number of teams
+   - Minimum of 2 teams required
 
 3. **Generate Teams**
-      - Click "GENERATE" to create random teams
-      - Teams are displayed in colorful containers
-      - Use refresh button to get new combinations
-      - Copy button to share teams
+   - Click "GENERATE" to create random teams
+   - Teams are displayed in colorful containers
+   - Use refresh button to get new combinations
+   - Copy button to share teams
 
 <a id="development"></a>
 

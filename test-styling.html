@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button Style Comparison Test</title>
+    <link rel="stylesheet" href="src/css/main.css" />
+    <style>
+      .test-container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background: var(--bg-secondary-dark);
+        border-radius: var(--border-radius);
+      }
+      .test-row {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid var(--divider-dark);
+      }
+      h2 {
+        color: var(--text-primary-dark);
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body data-theme="dark">
+    <div class="test-container">
+      <h2>Button Style Comparison</h2>
+      <div class="test-row name-item has-content">
+        <button class="participant-number">1</button>
+        <input
+          type="text"
+          class="name-input"
+          value="Test Name"
+          style="flex: 1; background: transparent; border: none; color: inherit"
+        />
+        <button class="delete-name">×</button>
+      </div>
+      <div class="test-row name-item has-content">
+        <button class="participant-number">2</button>
+        <input
+          type="text"
+          class="name-input"
+          value="Another Name"
+          style="flex: 1; background: transparent; border: none; color: inherit"
+        />
+        <button class="delete-name">×</button>
+      </div>
+    </div>
+  </body>
+</html>

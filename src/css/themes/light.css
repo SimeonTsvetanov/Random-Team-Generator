@@ -137,5 +137,15 @@ body[data-theme="light"] .delete-name {
 
 body[data-theme="light"] .delete-name:hover {
   opacity: 0.8;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Participant number styles - match delete button exactly */
+body[data-theme="light"] .participant-number {
+  color: var(--text-secondary-light);
+}
+
+body[data-theme="light"] .participant-number:hover {
+  opacity: 0.8;
+  background: rgba(0, 0, 0, 0.1);
 }

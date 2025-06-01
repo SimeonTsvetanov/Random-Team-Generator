@@ -67,16 +67,23 @@ class MainInput {
       if (value === "" || isNaN(parseInt(value)) || parseInt(value) < 2) {
         this.updateTeamCount(2);
       }
-    }); // Handle input changes
+    });
+
+    // Handle input changes for inline numbering and auto-removal
     this.namesList.addEventListener("input", (e) => {
       const input = e.target;
       if (input.tagName === "INPUT") {
         const item = input.closest(".name-item");
-        const deleteButton = item.querySelector(".delete-name");
 
-        // Show/hide delete button based on input content
+        // Clear any pending auto-remove timeout when user starts typing
+        if (item.autoRemoveTimeout) {
+          clearTimeout(item.autoRemoveTimeout);
+          delete item.autoRemoveTimeout;
+        }
+
+        // Show/hide delete button and participant number based on input content
         if (input.value.trim()) {
-          deleteButton.style.visibility = "visible";
+          item.classList.add("has-content");
 
           // Check if this is the first input and contains the cheat code
           if (
@@ -87,9 +94,53 @@ class MainInput {
             return;
           }
         } else {
-          deleteButton.style.visibility = "hidden";
+          item.classList.remove("has-content");
+
+          // Auto-remove empty inputs with a delay to prevent jumping while typing
+          const allItems = Array.from(
+            this.namesList.querySelectorAll(".name-item")
+          );
+          const isLast = item === this.namesList.lastElementChild;
+
+          // Only remove if it's not the last item and there are more than 1 items
+          if (!isLast && allItems.length > 1) {
+            // Use a timeout to allow user to continue typing
+            clearTimeout(item.autoRemoveTimeout);
+            item.autoRemoveTimeout = setTimeout(() => {
+              // Double-check the input is still empty and item still exists
+              if (input.value.trim() === "" && item.parentNode) {
+                const currentItems = Array.from(
+                  this.namesList.querySelectorAll(".name-item")
+                );
+                const currentIndex = currentItems.indexOf(item);
+
+                // Remove the empty item
+                item.remove();
+
+                // Focus the next available input or the previous one
+                const remainingItems = Array.from(
+                  this.namesList.querySelectorAll(".name-item")
+                );
+                if (remainingItems.length > 0) {
+                  let targetIndex = Math.min(
+                    currentIndex,
+                    remainingItems.length - 1
+                  );
+                  const targetInput =
+                    remainingItems[targetIndex].querySelector(".name-input");
+                  targetInput.focus();
+                }
+
+                // Update numbers after removal
+                this.updateParticipantNumbers();
+                this.saveNames();
+              }
+            }, 500); // 500ms delay to prevent jumping while typing
+          }
         }
 
+        // Always update participant numbers when any input changes
+        this.updateParticipantNumbers();
         this.saveNames();
       }
     });
@@ -118,33 +169,72 @@ class MainInput {
             // If it's the last input, just clear it
             const input = item.querySelector(".name-input");
             input.value = "";
-            item.querySelector(".delete-name").style.visibility = "hidden";
+            item.classList.remove("has-content");
           }
+
+          // Always update numbers after any delete operation
+          this.updateParticipantNumbers();
           this.saveNames();
           this.participantCounter.updateCount();
+
+          // Ensure there's always at least one input available
+          if (this.namesList.children.length === 0) {
+            this.addNameInput();
+          }
         }
       }
     });
 
-    // Handle enter key
+    // Handle keyboard navigation and enter key
     this.namesList.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
+      if (e.target.tagName === "INPUT") {
         const currentInput = e.target;
-        const currentValue = currentInput.value.trim();
+        const currentItem = currentInput.closest(".name-item");
+        const allItems = Array.from(
+          this.namesList.querySelectorAll(".name-item")
+        );
+        const currentIndex = allItems.indexOf(currentItem);
 
-        // Only create new input if current has content
-        if (currentValue) {
-          const currentItem = currentInput.closest(".name-item");
-          const isLast = currentItem === this.namesList.lastElementChild;
+        if (e.key === "Enter") {
+          e.preventDefault();
+          const currentValue = currentInput.value.trim();
 
-          // Always create new input when pressing enter on a filled input
-          this.addNameInput();
+          // Only create new input if current has content
+          if (currentValue) {
+            // Always create new input when pressing enter on a filled input
+            this.addNameInput();
 
-          // Focus the new input
-          const nextInput =
-            this.namesList.lastElementChild.querySelector(".name-input");
-          nextInput.focus();
+            // Focus the new input
+            const nextInput =
+              this.namesList.lastElementChild.querySelector(".name-input");
+            nextInput.focus();
+          }
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          // Move to previous input
+          if (currentIndex > 0) {
+            const prevInput =
+              allItems[currentIndex - 1].querySelector(".name-input");
+            prevInput.focus();
+            // Move cursor to end of input
+            prevInput.setSelectionRange(
+              prevInput.value.length,
+              prevInput.value.length
+            );
+          }
+        } else if (e.key === "ArrowDown") {
+          e.preventDefault();
+          // Move to next input
+          if (currentIndex < allItems.length - 1) {
+            const nextInput =
+              allItems[currentIndex + 1].querySelector(".name-input");
+            nextInput.focus();
+            // Move cursor to end of input
+            nextInput.setSelectionRange(
+              nextInput.value.length,
+              nextInput.value.length
+            );
+          }
         }
       }
     });
@@ -157,6 +247,16 @@ class MainInput {
     const item = document.createElement("div");
     item.className = "name-item";
 
+    // Add has-content class if value is provided
+    if (value.trim()) {
+      item.classList.add("has-content");
+    }
+
+    // Add participant number button (same style as delete button, positioned on left)
+    const participantNumber = document.createElement("button");
+    participantNumber.className = "participant-number";
+    participantNumber.textContent = ""; // Will be set by updateParticipantNumbers
+
     const input = document.createElement("input");
     input.type = "text";
     input.className = "name-input";
@@ -166,16 +266,46 @@ class MainInput {
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete-name";
     deleteButton.innerHTML = "×"; // Using × instead of material icon for simpler appearance
-    deleteButton.style.visibility = value ? "visible" : "hidden";
 
+    // Order: participant number (left), input (center), delete button (right)
+    item.appendChild(participantNumber);
     item.appendChild(input);
     item.appendChild(deleteButton);
     this.namesList.appendChild(item);
+
+    // Update all participant numbers
+    this.updateParticipantNumbers();
 
     if (!value) {
       input.focus();
     }
   }
+  /**
+   * Update participant numbers for all items with content
+   * Only shows numbers for inputs that have content
+   */
+  updateParticipantNumbers() {
+    const nameItems = Array.from(this.namesList.querySelectorAll(".name-item"));
+    let number = 1;
+
+    nameItems.forEach((item) => {
+      const input = item.querySelector(".name-input");
+      const participantNumber = item.querySelector(".participant-number");
+
+      if (participantNumber) {
+        // Only set numbers for items with content
+        if (input && input.value.trim()) {
+          // Set the actual number (1, 2, 3, etc.)
+          participantNumber.textContent = number;
+          number++;
+        } else {
+          // Clear number if no content
+          participantNumber.textContent = "";
+        }
+      }
+    });
+  }
+
   /**
    * Save all names to storage
    */

@@ -5,6 +5,9 @@
  * @author Simeon Tsvetanov
  */
 
+/* Import component styles */
+@import url("./components/participant-counter.css");
+
 /* Scrollbar Styles */
 * {
   scrollbar-width: auto;
