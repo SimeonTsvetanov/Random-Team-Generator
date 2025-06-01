@@ -180,11 +180,62 @@ button {
 .beer-icon {
   display: inline-block;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   transition: transform 0.2s ease;
   margin-left: 4px;
 }
 
 .beer-icon:hover {
   transform: scale(1.2);
+}
+
+/* GitHub logo styling */
+.github-icon {
+  display: inline-block;
+  text-decoration: none;
+  margin-right: 8px;
+  transition: transform 0.2s ease;
+}
+
+.github-icon img {
+  width: 1.4rem;
+  height: 1.4rem;
+  vertical-align: middle;
+  filter: brightness(0.7);
+  transition: filter 0.2s ease;
+}
+
+.github-icon:hover img {
+  filter: brightness(1);
+  transform: scale(1.1);
+}
+
+/* Buy me a beer text styling - clickable but no visual changes */
+.buy-me-text {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.buy-me-text:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Dark theme GitHub logo */
+body[data-theme="dark"] .github-icon img {
+  filter: brightness(0.8) invert(1);
+}
+
+body[data-theme="dark"] .github-icon:hover img {
+  filter: brightness(1) invert(1);
+}
+
+/* Light theme GitHub logo */
+body[data-theme="light"] .github-icon img {
+  filter: brightness(0.6);
+}
+
+body[data-theme="light"] .github-icon:hover img {
+  filter: brightness(0.8);
 }
