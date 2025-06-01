@@ -93,4 +93,10 @@
     background: var(--bg-primary-dark);
     border-top: 1px solid var(--divider-dark);
   }
+  
+  /* Light theme PWA footer */
+  body[data-theme="light"] .footer {
+    background: var(--bg-primary-light);
+    border-top: 1px solid var(--divider-light);
+  }
 }

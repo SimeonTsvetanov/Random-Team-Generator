@@ -22,6 +22,7 @@ A modern Progressive Web App for quickly and fairly dividing people into teams.
 </div>
 
 <a id="features"></a>
+
 ## ✨ Features
 
 ### Core Functionality
@@ -46,11 +47,13 @@ A modern Progressive Web App for quickly and fairly dividing people into teams.
 - 🔄 **Auto Updates** - Always get the latest version
 
 <a id="live-demo"></a>
+
 ## 🚀 Live Demo
 
 Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Team-Generator/)
 
 <a id="installation"></a>
+
 ## 📥 Installation
 
 ### As a PWA
@@ -60,26 +63,28 @@ Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Tea
 3. Click "Install" to add it to your device
 
 <a id="usage"></a>
+
 ## 💡 Usage
 
 1. **Enter Names**
 
-   - Type or paste names into the text area
+- Type or paste names into the text area
    - One name per line
    - Empty lines are automatically ignored
 
 2. **Select Team Count**
 
-   - Use + and - buttons to adjust number of teams
+- Use + and - buttons to adjust number of teams
    - Minimum of 2 teams required
 
 3. **Generate Teams**
-   - Click "GENERATE" to create random teams
-   - Teams are displayed in colorful containers
-   - Use refresh button to get new combinations
-   - Copy button to share teams
+      - Click "GENERATE" to create random teams
+      - Teams are displayed in colorful containers
+      - Use refresh button to get new combinations
+      - Copy button to share teams
 
 <a id="development"></a>
+
 ## 🛠️ Development
 
 ### Project Structure
@@ -123,6 +128,7 @@ Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Tea
 │   │       └── light.css
 │   └── assets/
 │       └── images/          # Images and icons
+│           ├── github-logo.png
 │           ├── logo.svg
 │           └── teams-logo.svg
 └── public/
@@ -163,11 +169,13 @@ Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Tea
 - ✅ Opera (latest)
 
 <a id="license"></a>
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 <a id="author"></a>
+
 ## 👤 Author
 
 **Simeon Tsvetanov**
@@ -175,6 +183,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Github: [@SimeonTsvetanov](https://github.com/SimeonTsvetanov)
 
 <a id="contributing"></a>
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome! Feel free to check the [issues page](https://github.com/SimeonTsvetanov/Random-Team-Generator/issues).
@@ -186,6 +195,7 @@ Contributions, issues and feature requests are welcome! Feel free to check the [
 5. Open a Pull Request
 
 <a id="show-your-support"></a>
+
 ## 💫 Show your support
 
 Give a ⭐️ if this project helped you!
