@@ -159,7 +159,7 @@ button {
     height: 100vh;
     height: 100dvh;
     padding-top: env(safe-area-inset-top);
-    padding-bottom: 0; /* Remove bottom padding to prevent double spacing */
+    padding-bottom: env(safe-area-inset-bottom); /* Handle safe area for PWA */
   }
 }
 

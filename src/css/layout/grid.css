@@ -80,22 +80,12 @@
   }
 }
 
-/* iOS specific optimizations */
-@supports (-webkit-appearance: none) {
-  .footer {
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-}
-
-/* iOS PWA specific optimizations */
+/* iOS PWA specific optimizations - Consolidated to avoid conflicts */
 @media (display-mode: standalone) {
-  /* Default footer for PWA */
+  /* PWA footer styling with proper safe area handling */
   .footer {
     background: var(--bg-primary-dark);
     border-top: 1px solid var(--divider-dark);
-    padding-bottom: env(
-      safe-area-inset-bottom
-    ); /* Ensure safe area is handled */
     position: relative;
     bottom: 0;
   }
@@ -106,10 +96,17 @@
     border-top: 1px solid var(--divider-light) !important;
   }
 
-  /* Dark theme PWA footer override - explicit to ensure it works */
+  /* Dark theme PWA footer override */
   body[data-theme="dark"] .footer {
     background: var(--bg-primary-dark) !important;
     border-top: 1px solid var(--divider-dark) !important;
+  }
+}
+
+/* iOS Safari browser specific optimizations (non-PWA) */
+@supports (-webkit-appearance: none) and (display-mode: browser) {
+  .footer {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }
 
