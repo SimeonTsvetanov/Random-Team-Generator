@@ -93,17 +93,19 @@
   .footer {
     background: var(--bg-primary-dark);
     border-top: 1px solid var(--divider-dark);
-    padding-bottom: env(safe-area-inset-bottom); /* Ensure safe area is handled */
+    padding-bottom: env(
+      safe-area-inset-bottom
+    ); /* Ensure safe area is handled */
     position: relative;
     bottom: 0;
   }
-  
+
   /* Light theme PWA footer override */
   body[data-theme="light"] .footer {
     background: var(--bg-primary-light) !important;
     border-top: 1px solid var(--divider-light) !important;
   }
-  
+
   /* Dark theme PWA footer override - explicit to ensure it works */
   body[data-theme="dark"] .footer {
     background: var(--bg-primary-dark) !important;

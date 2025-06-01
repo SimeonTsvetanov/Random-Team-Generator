@@ -56,11 +56,15 @@ Try it now: [Random Team Generator](https://simeontsvetanov.github.io/Random-Tea
 
 ## 📥 Installation
 
-### As a PWA
+### PWA Installation Instructions
 
-1. Visit the [web app](https://simeontsvetanov.github.io/Random-Team-Generator/)
-2. Your browser will show an "Add to Home Screen" prompt
-3. Click "Install" to add it to your device
+| Platform | Browser | Installation Steps |
+|----------|---------|-------------------|
+| 🖥️ **Chrome Desktop** | Chrome/Edge | 1. Visit the [web app](https://simeontsvetanov.github.io/Random-Team-Generator/) → 2. Click the install icon (⊞) in the address bar → 3. Click "Install" |
+| 📱 **iOS (iPhone/iPad)** | Safari | 1. Open in Safari → 2. Tap the Share button (□↗) → 3. Scroll down and tap "Add to Home Screen" → 4. Tap "Add" |
+| 🤖 **Android** | Chrome | 1. Visit the web app → 2. Tap the "Add to Home Screen" banner/prompt → 3. Tap "Install" or "Add" |
+| 🔄 **Alternative Method** | Any Browser | 1. Open browser menu (⋮) → 2. Look for "Install app" or "Add to Home Screen" → 3. Follow the prompts |
+| ✨ **After Installation** | All Platforms | The app will appear on your home screen/desktop and work offline with automatic updates |
 
 <a id="usage"></a>
 
