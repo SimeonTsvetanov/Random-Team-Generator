@@ -89,14 +89,21 @@
 
 /* iOS PWA specific optimizations */
 @media (display-mode: standalone) {
+  /* Default footer for PWA */
   .footer {
     background: var(--bg-primary-dark);
     border-top: 1px solid var(--divider-dark);
   }
   
-  /* Light theme PWA footer */
+  /* Light theme PWA footer override */
   body[data-theme="light"] .footer {
-    background: var(--bg-primary-light);
-    border-top: 1px solid var(--divider-light);
+    background: var(--bg-primary-light) !important;
+    border-top: 1px solid var(--divider-light) !important;
+  }
+  
+  /* Dark theme PWA footer override - explicit to ensure it works */
+  body[data-theme="dark"] .footer {
+    background: var(--bg-primary-dark) !important;
+    border-top: 1px solid var(--divider-dark) !important;
   }
 }
