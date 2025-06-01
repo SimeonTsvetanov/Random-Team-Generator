@@ -26,7 +26,11 @@
 
 /* Header title styles */
 .header__title {
-  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-size: clamp(
+    1.2rem,
+    4.5vw,
+    2rem
+  ); /* Responsive based on available space */
   font-weight: bold;
   white-space: nowrap;
   margin: 0;
@@ -89,14 +93,22 @@ body[data-theme="light"] .header__title.typed {
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .header__title {
-    font-size: clamp(0.7rem, 3.5vw, 1rem);
+    font-size: clamp(
+      1.4rem,
+      6vw,
+      2.2rem
+    ); /* Much larger on mobile - proportional to icons */
   }
 }
 
-/* Very small screens - reduce font further instead of hiding */
+/* Very small screens */
 @media (max-width: 480px) {
   .header__title {
-    font-size: clamp(0.6rem, 3vw, 0.8rem);
+    font-size: clamp(
+      1.2rem,
+      5.5vw,
+      1.8rem
+    ); /* Still large and readable on small screens */
     width: 15ch; /* Keep the same character width */
   }
 }
