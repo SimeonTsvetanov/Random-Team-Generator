@@ -83,7 +83,7 @@
 /* iOS specific optimizations */
 @supports (-webkit-appearance: none) {
   .footer {
-    padding-bottom: max(var(--spacing-xs), env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }
 
@@ -93,6 +93,9 @@
   .footer {
     background: var(--bg-primary-dark);
     border-top: 1px solid var(--divider-dark);
+    padding-bottom: env(safe-area-inset-bottom); /* Ensure safe area is handled */
+    position: relative;
+    bottom: 0;
   }
   
   /* Light theme PWA footer override */
@@ -105,5 +108,14 @@
   body[data-theme="dark"] .footer {
     background: var(--bg-primary-dark) !important;
     border-top: 1px solid var(--divider-dark) !important;
+  }
+}
+
+/* iOS PWA grid layout fixes */
+@media (display-mode: standalone) and (-webkit-appearance: none) {
+  .main {
+    flex: 1; /* Ensure main area fills available space */
+    min-height: 0;
+    overflow-y: auto;
   }
 }
